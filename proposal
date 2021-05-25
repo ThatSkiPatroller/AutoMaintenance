@@ -1,0 +1,16 @@
+1. What the app will do:
+Users can view car maintenance services from available dealers in the area. Dealers can make profiles where they provide services, availability, pickup and drop-off hours and location. User can select and add services where total cost will be figured. User can add ratings and comments on dealer profile. Once user adds services and selects schedule appointment, an email is sent to user to confirm. User can add their cars to their profile and get service information based on mileage.
+2. What technologies they expect their app to implement
+Material UI, EmalJS
+3. Who will be responsible for each part of the app:
+Trace - Profile pages, database getting service information, total cost of service, api routes, material UI
+Arti - Login/Signup, database setup and posting user information, html routes, material UI, emailJS sending
+DL - Selecting services, finding shops/dealers
+4. Who will be responsible for each part of deliverable #1:
+ Arti - An overview of the intended application and why you feel it's valuable;
+Trace - A set of detailed screen-by-screen design layouts with annotations describing all UI/UX components and all data relevant to the screen 
+
+Plan: 
+
+1. Application start - Login/Signup page
+Signup Page
