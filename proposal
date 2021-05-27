@@ -14,3 +14,61 @@ Plan:
 
 1. Application start - Login/Signup page
 Signup Page
+
+
+PROJECT TITLE: Auto Maintainance
+
+PROJECT DESCRIPTION:
+This app is for scheduling maintainance request for car. As a user, I should have abilitiy to schedule maintainance for my car from available dealers.
+We want user to login/sign for scheduling maintainance request.
+User can add his car details - Make, Model, year,Mileage 
+User can select from available dealer around his area.
+user can choose time slot from Selected dealer and confirm appointment 
+This app also have option to login/sign up for dealers. Dealers can add services and time slots with Pick-up/drop off facility availability.
+
+USER STORY:
+<strong>Login As A User: </strong>
+GIVEN a site
+WHEN I visit the site for the first time
+THEN I am presented with the login/sign-up button with option to select as User/Dealer
+WHEN I click on Sign-up button with User option 
+THEN ASK for username, firstname, lastname, password, address, phone number 
+WHEN I click on Sign-up button
+THEN check for validation and account is created
+WHEN I click on Login button
+THEN ASK for username , password , submit button
+WHEN click on submit button
+THEN user is logged in and main page is open 
+Main Page
+
+WHEN Main is shown
+USer should have option to add his car - make,modal,year and options to schedule maintainance
+WHEN car details is added
+THEN it should show available dealers
+WHEN clicked on dealer 
+THEN user can select service option , time, pick-up, drop-off, price
+WHEN user clicks on submit 
+THEN appointment is confirmed with pricing
+WHEN user clicks on My Appointment button 
+THEN it should see his appointment 
+WHEN user clicks on My Profile button
+THEN it should see his information - name, address, phone no
+
+<strong>Login As A Dealer: </strong>
+GIVEN a site
+WHEN I visit the site for the first time
+THEN I am presented with the login/sign-up button with option to select as User/Dealer
+WHEN I click on Sign-up button for dealer
+THEN ASK for username, firstname, lastname, password, address, phone number, service provided
+WHEN I click on Sign-up button
+THEN check for validation and account is created
+WHEN I click on Login button
+THEN ASK for username , password , submit button
+WHEN click on submit button
+THEN dealer is logged in and My service page is open
+WHEN dealer clicks on My Service
+THEN dealer can add his services, price, availability 
+WHEN dealer clicks on 'My Appointments'
+THEN dealer can view his appointments
+
+
