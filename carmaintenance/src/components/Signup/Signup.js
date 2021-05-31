@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button, TextField, Card, CardContent, Grid, Typography} from '@material-ui/core';
 import './style.css';
+import axios from 'axios';
 
 const validationSchema = Yup.object().shape({
     username: Yup.string()
@@ -31,6 +32,12 @@ function Signup () {
         validationSchema: validationSchema,
         onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2))
+            const newUser = {
+                username: formik.values.username,
+                email: formik.values.email,
+                password: formik.values.password
+            }
+            axios.post('http://localhost:3001/create', newUser)
         }
     })
 
