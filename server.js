@@ -6,6 +6,10 @@ const mongoose = require('mongoose');
 app.use(cors());
 app.use(express.json());
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
+
 mongoose.connect('mongodb+srv://picklerick:picklerick123@cluster0.rpqxm.mongodb.net/carmaintenanceDB?retryWrites=true&w=majority')
 
 app.use("/", require("./routes/userRoute"));
