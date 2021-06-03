@@ -1,6 +1,6 @@
 {
   "name": "AutoMaintenance",
-  "homepage": "",
+  "homepage": "https://still-taiga-02228.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
