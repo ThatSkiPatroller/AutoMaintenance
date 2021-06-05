@@ -1,0 +1,57 @@
+table {
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    width: 100%;
+  }
+  td {
+    padding: 10px 0;
+  }
+  table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  table tr:nth-child(even){background-color: #f2f2f2;}
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: teal;
+    color: black;
+    font-family: 'Trebuchet MS';
+  }
+  table img {
+    border-radius: 10px;
+    text-align: center;
+  }
+  table button {
+    background-color: transparent;
+  }
+  .headerSortUp
+  {
+      left: 3px;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: solid 5px transparent;
+      margin: 4px 4px 0 3px;
+      background: transparent;
+      border-bottom: solid 7px black;
+      border-top-width: 0;
+  }
+  .headerSortDown
+  {
+      left: 3px;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border: solid 5px transparent;
+      margin: 4px 4px 0 3px;
+      background: transparent;
+      border-top: solid 7px black;
+      border-bottom-width: 0;
+  }
