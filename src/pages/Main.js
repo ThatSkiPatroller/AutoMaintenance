@@ -7,6 +7,7 @@ import PlanetImg from '../assets/images/planet.svg';
 import SearchBar from '../components/SearchBar/SearchBar';
 import DealerList from '../components/DealerList/DealerList';
 import data from '../dealerData';
+import API from "../Utils/API";
 
 export default class Dashboard extends Component {
         state = {
@@ -19,6 +20,12 @@ export default class Dashboard extends Component {
           EmployeeList: [],
         };
       
+
+        componentDidMount() {
+          API.search()
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+        };
         
       
         // Method to handle input change

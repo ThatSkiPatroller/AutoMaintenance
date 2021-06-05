@@ -1,5 +1,5 @@
 import React from 'react';
-import Signup from '../components/Signup/Signup';
+import Signup from '../pages/SignUp/Signup';
 import Navbar from '../components/Navbar'
 
 function Home () {
