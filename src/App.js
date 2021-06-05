@@ -4,6 +4,11 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Signup from "./components/Signup/Signup";
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Main from './pages/Main';
+import "./assets/css/app.scss";
+import Dashboard from "./pages/Dashboard";
+import DealerList from "./components/DealerList/DealerList";
+import Booking from "./pages/Booking/Booking";
 
 function App() {
   
@@ -16,6 +21,10 @@ function App() {
             {isLoggedIn() && <Sidebar />} */}
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
+            <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/dealerList' component={DealerList} />
+            <Route exact path='/booking/:id' component={Booking} />
+
             {/* <SecuredRoute path="/dashboard" component={Dashboard} />
             <SecuredRoute path="/profile" component={Profile} />
             {isLoggedIn() && <Footer />} */}

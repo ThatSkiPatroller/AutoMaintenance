@@ -19,7 +19,11 @@ function Navbar (props) {
                     <h3>Car Maintenance</h3>
                 </Typography></Grid>
                 <Button color="inherit" href='/Login' justify="flex-end">{props.btn}</Button>
-            
+                <Button color="inherit" href='/signup' justify="flex-end">Sign up</Button>
+                <Button color="inherit" href='/dashboard' justify="flex-end">Dashboard</Button>
+                <Button color="inherit" href='/addcar' justify="flex-end">Add car</Button>
+                <Button color="inherit" href='/dealerlist' justify="flex-end">Dealer list </Button>
+                <Button color="inherit" href='/booking/id:' justify="flex-end">Booking </Button>
             </Toolbar>
         </AppBar>
         </div>
