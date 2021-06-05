@@ -9,6 +9,8 @@ app.use(express.json());
 mongoose.connect('mongodb+srv://picklerick:picklerick123@cluster0.rpqxm.mongodb.net/carmaintenanceDB?retryWrites=true&w=majority')
 
 app.use("/", require("./routes/userRoute"));
-app.listen(3001, function () {
-    console.log('express server is running on port 3001');
+app.use("/dealer", require("./routes/dealerRoute"));
+
+app.listen(3000, function () {
+    console.log('express server is running on port 3000');
 })
