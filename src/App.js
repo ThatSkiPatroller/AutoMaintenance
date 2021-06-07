@@ -9,7 +9,7 @@ import "./assets/css/app.scss";
 import Dashboard from "./pages/Dashboard";
 import DealerList from "./components/DealerList/DealerList";
 import Booking from "./pages/Booking/Booking";
-
+import DealerHome from "./pages/DealerHomepage/index"
 function App() {
   
     // const {pathname} = this.props.location;
@@ -22,8 +22,10 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/dealer-home' component={DealerHome} />
             <Route exact path='/dealerList' component={DealerList} />
             <Route exact path='/booking/:id' component={Booking} />
+
 
             {/* <SecuredRoute path="/dashboard" component={Dashboard} />
             <SecuredRoute path="/profile" component={Profile} />
