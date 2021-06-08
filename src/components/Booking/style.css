@@ -1,0 +1,10 @@
+.date {
+    text-align: left;
+    margin-left: 200px;
+}
+.card-timeslot {
+    height: 100px;
+}
+.checked {
+    background-color: rebeccapurple;
+}

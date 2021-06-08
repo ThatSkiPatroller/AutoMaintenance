@@ -21,23 +21,18 @@ import MomentLocaleUtils, {
 } from 'react-day-picker/moment';
 
 import 'moment/locale/it';
+import { Checkbox } from "@material-ui/core";
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-function disableWeekends(date) {
-    return date.getDay() === 0 || date.getDay() === 6;
-  }
-  
-  function disableRandomDates() {
-    return Math.random() > 0.7;
-  }
 
   const Booking = () => {
 
-       const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+    var isOvernightDelivery = false
+    var startTime = ""
+    var endTime = ""
+    var date = ""
 
-        const handleDateChange = (date) => {
-            setSelectedDate(date);
-        };
-
+    const [checkOverNight, setCheckOverNight] = React.useState(true);
         const [state, dispatch] = useReducer(
         (state, action) => {
           switch (action.type) {
@@ -54,7 +49,10 @@ function disableWeekends(date) {
                     ...timeslot,
                     booked: true,
                     contactName: state.contactName,
-                    contactPhone: state.contactPhone
+                    contactPhone: state.contactPhone,
+                    contactDate: state.contactDate,
+                    contactStartTime:state.startTime,
+                    contactEndTime: state.endTime
                   };
                 })
               };
@@ -104,20 +102,36 @@ function disableWeekends(date) {
           timeslotID: null
         }
       );
-         const {
+        const {
         timeslots,
         bookingModalStatus,
         reviewingModalStatus,
         contactName,
-        contactPhone
+        contactPhone,
+        contactDescription,
+        contactStartTime,
+        contactEndTime,
+        contactDate,
+        contactIsOvernight
          } = state;
     
         function onCloseBookingModal(e) {
             dispatch({ type: "closeBookingModal" });
         }
+        function handleDayChange(day) {
+          date = day
+        }
+
         function onOpenBookingModal(e) {
             const timeslotID = parseInt(e.target.getAttribute("data-timeslot-id"), 10);
-            dispatch({ type: "openBookingModal", timeslotID });
+            var sTime= e.target.getAttribute("data-timeslot-start-time");
+            var eTime = e.target.getAttribute("data-timeslot-end-time");
+            var isOvernight  = e.target.name
+            alert(sTime)
+            alert(eTime)
+            alert(isOvernight)
+            alert(date)
+            dispatch({ type: "openBookingModal", timeslotID });            
         }
         function onCloseBookingModal() {
             dispatch({ type: "closeBookingModal" });
@@ -126,6 +140,7 @@ function disableWeekends(date) {
             const timeslotID = parseInt(e.target.getAttribute("data-timeslot-id"), 10);
             dispatch({ type: "openReviewingModal", timeslotID });
         }
+       
         function onCloseReviewingModal() {
             dispatch({ type: "closeReviewingModal" });
         }
@@ -137,6 +152,7 @@ function disableWeekends(date) {
             fieldValue: e.target.value
             });
         }
+        
       function onBookTimeSlot(e) {
         e.preventDefault();
         if (contactName === "") {
@@ -144,6 +160,10 @@ function disableWeekends(date) {
         } else if (contactPhone === "") {
           return;
         }
+       
+        alert("over" + startTime)
+        alert("startt" + endTime)
+
         dispatch({ type: "bookTimeSlot" });
         dispatch({ type: "closeBookingModal" });
       }
@@ -152,101 +172,54 @@ function disableWeekends(date) {
         dispatch({ type: "bookTimeSlot" });
         dispatch({ type: "closeReviewingModal" });
       }
-
       const FORMAT = 'MM/DD/YYYY';
 
-        return (
+      return (
     <React.Fragment>
       <Jumbotron className="text-sm-left text-md-center">
         <Container>
-        <label htmlFor="appointmentDate">Appointment Date</label>
-              
-          <p className="lead">
-            Tap or click on an available timeslot below to book an appointment.{" "}
-          </p>
-          <p>
-            Time slots marked in <span className="red-text">red</span> are
-            already booked.
-          </p>
-          <DayPicker  initialMonth={new Date(2017, 3)}  disabledDays={[new Date(2017, 3, 12), { daysOfWeek: [0, 6] }]}/>
-          
-         
-      <p> using <code>{'format="MM/DD/YYYY"'}</code>:
-      </p>
-      <DayPickerInput   formatDate={formatDate}
-      format={FORMAT} dayPickerProps={{  disabledDays: [new Date(6 ,12, 2021), { daysOfWeek: [0, 6] }],
-    }} initialMonth={new Date(6, 2021)} placeholder={`${formatDate(new Date(), "MM/DD/YYYY")}`}
-      />
+          <Row>
+          <label htmlFor="appointmentDate">Appointment Date</label>
+          <p className="lead">Tap or click on an available timeslot below to book an appointment.{" "} Time slots marked in <span className="red-text">red</span> are already booked. </p>
+          </Row>
+          <Row className="date">
+          <DayPickerInput formatDate={formatDate}
+          format={FORMAT} onDayChange={handleDayChange}  dayPickerProps={{  disabledDays: [new Date(6 ,12, 2021), { daysOfWeek: [0, 6] }],
+            }} initialMonth={new Date(6, 2021)} placeholder={`${formatDate(new Date(), "MM/DD/YYYY")}`}/>
+          </Row>
         </Container>
-      </Jumbotron>
-{
-      <Container className="App">
         <Row>
+            <Button onClick={onOpenBookingModal} name="true" > Make it overnight </Button>
+        </Row> 
+        {
+
+      <div>
           {timeslots.map(({ id, startTime, endTime, booked }) => {
-            if (!booked) {
               return (
-                <Col sm={{ size: 8, offset: 2 }} key={id}>
-                  <Card body key={id}>
-                    <CardTitle tag="h5">{`${startTime} - ${endTime}`}</CardTitle>
-                    <Button
-                      MuiPickersUtilsProvider
-                      ="primary"
-                      onClick={onOpenBookingModal}
-                      data-timeslot-id={id}
-                    >
-                      Book This Time Slot
-                    </Button>
-                  </Card>
-                </Col>
+                <Row>
+                <Button onClick={onOpenBookingModal} name="false" data-timeslot-start-time={startTime} data-timeslot-end-time={endTime}> {`${startTime} - ${endTime}`}</Button>
+                </Row> 
               );
             }
-            return (
-              <Col sm={{ size: 8, offset: 2 }} key={id}>
-                <Card body key={id} color="danger" outline>
-                  <CardTitle tag="h5">{`${startTime} - ${endTime}`}</CardTitle>
-                  <Button
-                    color="danger"
-                    onClick={onOpenReviewingModal}
-                    data-timeslot-id={id}
-                  >
-                    Update This Time Slot
-                  </Button>
-                </Card>
-              </Col>
-            );
-          })}
-        </Row>
-
-        <Modal
-          isOpen={bookingModalStatus === "opened"}
-          toggle={onCloseBookingModal}
-          className="bookingModal"
-        >
+          )}
+        <Modal isOpen={bookingModalStatus === "opened"}  toggle={onCloseBookingModal}  className="bookingModal">
           <ModalHeader toggle={onCloseBookingModal}>
-            Please Enter Your Contact Information.
+            Please Enter Your Contact Information. In case,if you have picked up overnight delivery your car will be picked up by 10:00 PM and return before 6:00 AM
           </ModalHeader>
           <ModalBody>
             <Form onSubmit={onBookTimeSlot}>
               <FormGroup>
                 <Label for="contactName">Your Name</Label>
-                <Input
-                  type="text"
-                  name="contactName"
-                  id="contactName"
-                  placeholder="First and Last Name"
-                  onChange={onFormFieldChange}
-                  value={contactName}
-                />
+                <Input  type="text" name="contactName" id="contactName" placeholder="First and Last Name" onChange={onFormFieldChange} value={contactName}/>
               </FormGroup>
               <FormGroup>
                 <Label for="contactPhone">Your Phone Number</Label>
-                <Input
-                  type="tel"
-                  name="contactPhone"
-                  id="contactPhone"
-                  placeholder="1-(555)-555-5555"
-                  onChange={onFormFieldChange}
-                  value={contactPhone}
+                <Input type="tel" name="contactPhone" id="contactPhone" placeholder="1-(555)-555-5555" onChange={onFormFieldChange} value={contactPhone}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="contactdescription">Description for service needed </Label>
+                <Input type="text" name="contactDescription" id="contactDescription" placeholder="" onChange={onFormFieldChange} value={contactDescription}
                 />
               </FormGroup>
               <Button
@@ -318,8 +291,10 @@ function disableWeekends(date) {
             </Form>
           </ModalBody>
         </Modal>
-      </Container>
+      </div>
+     
       }
+       </Jumbotron>
       </React.Fragment>
   );
 }
