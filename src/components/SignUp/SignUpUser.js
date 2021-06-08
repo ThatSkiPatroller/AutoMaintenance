@@ -28,7 +28,7 @@ const validationSchema = Yup.object().shape({
 
 
 
-function Signup () {
+function SignUpUser () {
    // const [pickup, setPickup] = React.useState('pickup-Yes');
     const [dropOff, setDropoff] = React.useState('drop-yes');
     const [pickup, setPickup] = React.useState('');
@@ -105,6 +105,7 @@ function Signup () {
             <Grid  container  justify="center" alignItems="center"  direction="column">
             <Typography variant="h3" id="signupmsg">Signup</Typography>
             <form onSubmit={formik.handleSubmit}>
+            
                 <div className="form-group">
                 <TextField  variant="outlined"  id="username"
                     placeholder="username"
@@ -162,37 +163,10 @@ function Signup () {
                 </div>
                
                 
-                <div className="form-group">
-                <FormControl>
-                    <FormLabel component="legend">Pick-up option available</FormLabel>
-                    <RadioGroup  onChange={pickupRadioChange}  style={{display: 'inline', flexDirection: 'row'}}>
-                    <FormControlLabel value="pickup-Yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="pickup-no" control={<Radio />} label="No" />
-                </RadioGroup>
-                </FormControl>
-                </div>
+                
 
-                <div className="form-group">
-                <FormControl >
-                    <FormLabel component="legend">Drop-off option available</FormLabel>
-                    <RadioGroup value={dropOff} onChange={dropOffRadioChange}  style={{display: 'inline', flexDirection: 'row'}}>
-                    <FormControlLabel value="drop-yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="drop-no" control={<Radio />} label="No" />
-                </RadioGroup>
-                </FormControl>
-                </div>
+                
 
-                <div className="form-group">
-
-                <FormControl component="fieldset">
-        <FormLabel component="legend">Overnight service available ?</FormLabel>
-        <RadioGroup value={value} onChange={overnightRadioChange}  style={{display: 'inline', flexDirection: 'row'}}>
-          <FormControlLabel value="overnight-yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="overnight-no" control={<Radio />} label="No" />
-        </RadioGroup>
-        
-      </FormControl>
-                </div>
                 
                 <Button onClick={handleSubmit} color="primary" id="button" variant="contained" fullWidth type="submit">
                     Submit
@@ -206,4 +180,4 @@ function Signup () {
 }
 
 
-export default Signup;
+export default SignUpUser;

@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import axios from 'axios';
 import { useFormik } from "formik";
-import { Grid, TextField, Typography, Button } from '@material-ui/core';
+import { Grid, TextField, Typography, Button, Link } from '@material-ui/core';
 
 function Login () {
     const formik = useFormik({
@@ -50,9 +50,13 @@ function Login () {
                     helperText={formik.touched.password && formik.errors.password}
                 />
                 <br></br>
-                <Button color="primary" id="button" variant="contained" fullWidth type="submit">
+                <Button color="primary" id="button" variant="contained">
                     Submit
                 </Button>
+                
+                <Link href="/signupAsUser"> Sign up As User </Link>
+                <Link href="/signupAsDealer"> Sign up As Dealer </Link>
+                
             </form>
             </Grid>
         </div>

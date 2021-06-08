@@ -57,6 +57,11 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/dealerHome" className={classes.navlink} activeClassName={classes.active}>
+                Dealer home page
+              </NavLink>
+            </li>
+            <li>
               <a href="/login" onClick={logOut} className={classes.navlink}>
                 Logout
               </a>
