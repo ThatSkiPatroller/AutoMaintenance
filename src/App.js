@@ -1,42 +1,50 @@
-import React from "react";
-import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import Signup from "./pages/SignUp/Signup";
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Main from './pages/Main';
-import "./assets/css/app.scss";
-import Dashboard from "./pages/Dashboard";
-import DealerList from "./components/DealerList/DealerList";
-import Booking from "./pages/Booking/Booking";
-import DealerHome from "./pages/DealerHomepage/index"
-function App() {
-  
-    // const {pathname} = this.props.location;
-    return (
-      <Router>
-        {/* <Switch>  */}
-          <div>
-            {/* {isLoggedIn() && <Header />}
-            {isLoggedIn() && <Sidebar />} */}
-            <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/signup' component={Signup} />
-            <Route exact path='/main' component={Main} />
-            <Route exact path='/dashboard' component={Dashboard} />
-            <Route exact path='/dealer-home' component={DealerHome} />
-            <Route exact path='/dealerList' component={DealerList} />
-            <Route exact path='/booking/:id' component={Booking} />
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  Switch, Route, useLocation,
+} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Sidebar from './components/Sidebar';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import { clearMessage } from './actions/message';
+import Dealers from './components/Dealers/Dealers';
+import DealerDetail from './components/DealerDetail/DealerDetail';
+import NewBooking from './components/Booking/Booking';
+import Login from './components/Login/Login';
+import SignUpDealer from './components/SignUp/SignUpDealer';
+import signupAsUser from './components/SignUp/SignUpUser';
 
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import DealerHomePage from './components/DealerHomepage/index';
 
-            {/* <SecuredRoute path="/dashboard" component={Dashboard} />
-            <SecuredRoute path="/profile" component={Profile} />
-            {isLoggedIn() && <Footer />} */}
-          </div>
-        {/* </Switch> */}
-      </Router>
-    );
-  }
+const App = () => {
 
+  const dispatch = useDispatch();
+  const location = useLocation();
+  useEffect(() => {
+    dispatch(clearMessage()); // clear message when changing location
+  }, [dispatch, location]);
+
+  return (
+    <div>
+      <Sidebar />
+      <main>
+        <Switch>
+          <Route exact path={['/', '/home']} component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/dealerList" component={Dealers} />
+          <Route exact path="/dealers/:id" component={DealerDetail} />
+          <Route exact path="/booking/new" component={NewBooking} />
+          <Route exact path="/dealerHome" component={DealerHomePage} />
+          <Route exact path="/signupAsUser" component={signupAsUser} />
+          <Route exact path="/signupAsDealer" component={SignUpDealer} />
+
+        </Switch>
+      </main>
+    </div>
+  );
+};
 
 export default App;
