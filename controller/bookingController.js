@@ -16,6 +16,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createBooking: function(req, res) {
+    console.log("inn booking")
+    
     db.booking
       .create(req.body)
       .then(dbModel => res.json(dbModel))

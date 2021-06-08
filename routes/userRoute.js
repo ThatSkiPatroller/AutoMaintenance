@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Users = require('../models/userModel')
 
-router.route('/create').post((req, res) => {
+router.route('/api/booking').post((req, res) => {
+    console.log("ret")
     const username = req.body.username;
     const password = req.body.password;
     const email = req.body.email;

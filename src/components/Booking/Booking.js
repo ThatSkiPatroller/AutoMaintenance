@@ -4,7 +4,6 @@ import { DatePicker } from '@material-ui/pickers'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
-
 import {Button,Card, CardTitle,Col,Container,Form,FormGroup,Input,Jumbotron,Label,Modal, ModalHeader, ModalBody,
     Row
   } from "reactstrap";
@@ -23,6 +22,8 @@ import MomentLocaleUtils, {
 import 'moment/locale/it';
 import { Checkbox } from "@material-ui/core";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import API from "../../utils/API";
+import { date } from "yup";
 
 
   const Booking = () => {
@@ -131,8 +132,25 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
             alert(eTime)
             alert(isOvernight)
             alert(date)
-            dispatch({ type: "openBookingModal", timeslotID });            
-        }
+            dispatch({ type: "openBookingModal", timeslotID });   
+            
+            var obj = {
+              userId: "1",
+              dealerId: "1",
+              startTime: startTime,
+              endTime: endTime,
+              date: date,
+              isOvernight: isOvernight
+            }
+
+            API.saveBooking({
+             obj
+            })
+              .then(res => console.log("donee"))
+              .catch(err => console.log(err));
+          }
+      
+
         function onCloseBookingModal() {
             dispatch({ type: "closeBookingModal" });
         }
