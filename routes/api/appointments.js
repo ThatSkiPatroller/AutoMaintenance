@@ -7,7 +7,8 @@ const { Appointment } = require("../../models/appointment");
 
 module.exports = function(passport){
   router.route("/")
-    .get(isAuthenticated, appointmentsController.findAll)
+   // .get(isAuthenticated, appointmentsController.findAll)
+    .get(appointmentsController.findAll)
     .post(appointmentsController.create);
 
   // Matches with "/api/appointments/:id"
