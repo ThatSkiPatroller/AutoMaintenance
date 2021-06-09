@@ -61,14 +61,11 @@ class Appointments extends Component {
     appointmentDate: "",
     appointmentTime: "",
     appointments: [],
-    Dealers: [],
-    clinics: [],
     appointmentNameError: "",
     appointmentDealerError: "",
     appointmentDateError: "",
     appointmentTimeError: "",
     formSuccessMessage: "",
-
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
