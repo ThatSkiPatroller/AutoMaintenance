@@ -40,7 +40,7 @@ app.get('/user', function (req, res) {
 
 app.post('/api/appointments', function (req, res) {
   console.log('fdsfd')
-  db.appointments
+  db.Appointment
   .create(req.body)
   .then(dbModel => res.json(dbModel))
   .catch(err => res.status(422).json(err));
