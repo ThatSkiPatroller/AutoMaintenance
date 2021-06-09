@@ -10,6 +10,7 @@ import Grid from 'material-ui/Grid';
 import Sidebar from '../../Components/Sidebar';
 // Importing Navbar component.
 import NavBar from '../../Components/AppBar';
+const db = require('../models/appointment');
 
 //Style
 const styles = theme => ({
@@ -74,6 +75,12 @@ class Appointments extends Component {
 
   // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
+    db.Appointment
+    .find(req.query)
+    .then(dbModel => this.setState({ appointments: dbModel}))
+    .catch(err => res.status(422).json(err));
+
+    return
 
     AppointmentAPI.getAppointments()
       .then(res =>
