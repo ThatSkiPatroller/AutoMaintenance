@@ -63,10 +63,10 @@ class Sidebar extends React.Component {
             <ListItem className={classes.navItem} component={Link} to="/Dealers">
               <ListItemText>
                 <Tooltip
-                  title="Dealers and clinics"
+                  title="Dealers"
                   placement="top"
                 >
-                  <IconButton><i className="fas fa-user-md" /></IconButton>
+                  <IconButton><i className="fas fa-taxi" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
