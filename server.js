@@ -37,9 +37,6 @@ app.get('/user', function (req, res) {
 });
 
 
-
-
-
 app.post('/api/appointments', function (req, res) {
   console.log('fdsfd')
   
@@ -65,6 +62,8 @@ app.use(routes)
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
+console.log(process.env.MONGODB_URI)
+
 mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/automaintainancedb',
   {
     useNewUrlParser: true,
