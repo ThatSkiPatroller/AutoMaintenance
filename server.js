@@ -38,6 +38,14 @@ app.get('/user', function (req, res) {
 });
 
 
+app.post('/api/appointments', function (req, res) {
+  console.log('fdsfd')
+  db.appointments
+  .create(req.body)
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
+});
+
 app.get('/api/appointments', function (req, res) {
   console.log('fdsfd')
   db.Appointment

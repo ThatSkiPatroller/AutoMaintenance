@@ -3,6 +3,7 @@ import axios from 'axios';
 export default {
   // Gets all appointments
   getAppointments() {
+    console.log('in get')
     return axios.get('/api/appointments');
   },
   // Saves an appointment to the database
