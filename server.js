@@ -47,6 +47,8 @@ app.post('/api/appointments', function (req, res) {
   .catch(err => res.status(422).json(err));
 });
 
+
+
 mongoose.Promise = Promise;
 // configurePassport
 const configurePassport = require('./controllers/passport')
