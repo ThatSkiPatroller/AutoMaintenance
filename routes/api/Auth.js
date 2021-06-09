@@ -1,7 +1,5 @@
+
 const router = require("express").Router();
-// const passport = require('passport');
-
-
 module.exports = function(passport, User){
   router.get('/', (req, res, next) => {
       res.json('req.user is: ' + req.user);
@@ -20,7 +18,6 @@ module.exports = function(passport, User){
       req.logout();
       res.json("signed out");
     });
-    
 
     router.post('/signup', (req, res, next) => {
       var user = new User({
