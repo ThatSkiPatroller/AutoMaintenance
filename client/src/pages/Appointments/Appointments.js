@@ -74,6 +74,7 @@ class Appointments extends Component {
 
   // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
+
     AppointmentAPI.getAppointments()
       .then(res =>
         this.setState({ appointments: res.data})

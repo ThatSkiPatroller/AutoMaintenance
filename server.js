@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 const User = require('./models/User')
+const Appointment = require('./models/appointment')
 
 var MongoClient = require('mongodb').MongoClient;
 
@@ -52,8 +53,6 @@ app.post('/api/appointments', function (req, res) {
   .then(dbModel => res.json(dbModel))
   .catch(err => res.status(422).json(err));
 });
-
-
 
 mongoose.Promise = Promise;
 // configurePassport
