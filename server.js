@@ -48,10 +48,16 @@ app.get('/api/appointments', function (req, res) {
 
 app.post('/api/appointments', function (req, res) {
   console.log('fdsfd')
-    db.Appointment
-  .create(req.body)
-  .then(dbModel => res.json(dbModel))
-  .catch(err => res.status(422).json(err));
+    // Find all Users
+    db.Appointment.find({})
+    .then(function (dbUser) {
+      // If all Users are successfully found, send them back to the client
+      res.json(dbUser);
+    })
+    .catch(function (err) {
+      // If an error occurs, send the error back to the client
+      res.json(err);
+    });
 });
 
 mongoose.Promise = Promise;
@@ -62,11 +68,15 @@ const passport = configurePassport(app, mongoose, User)
 
 // Add routes, both API and view
 app.use(routes(passport, User));
+app.use(routes(passport, Appointment));
+
 app.use(routes)
 
-// Send every request to the React app
-// Define any API routes before this runs
 app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
+
+app.get('/api/appointments', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 console.log(process.env.MONGODB_URI)
