@@ -9,7 +9,7 @@ module.exports = function(passport, User) {
   // API Routes
   router.use('/api', apiRoutes(passport));
   router.use('/Auth', Auth(passport, User)); 
-  router.use('/appointments', htmlRoutes); 
+  router.use('/appointmentslist', htmlRoutes); 
 
   // If no API routes are hit, send the React app
   router.use((req, res) => {

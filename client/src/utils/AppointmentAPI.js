@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
   // Gets all appointments
   getAppointments() {
-    return axios.get('/appointments');
+    return axios.get('/appointmentslist');
   },
   // Saves an appointment to the database
   saveAppointment(appointmentData) {
