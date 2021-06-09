@@ -6,7 +6,7 @@ module.exports = {
       db.Appointment
           .findAll()
           .then(dbModel => {
-            console.log("ifgdg")
+            console.log(dbModel)
             res.json(dbModel)
           } )
           .catch(err => res.status(422).json(err));
