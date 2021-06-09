@@ -7,7 +7,6 @@ import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Ta
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
-// Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 // Importing Navbar component.
 import NavBar from '../../Components/AppBar';
