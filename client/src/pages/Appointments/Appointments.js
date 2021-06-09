@@ -75,13 +75,6 @@ class Appointments extends Component {
 
   // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
-    db.Appointment
-    .findAll()
-    .then(dbModel => this.setState({ appointments: dbModel}))
-    .catch(err => res.status(422).json(err));
-
-    return
-
     AppointmentAPI.getAppointments()
       .then(res =>
         this.setState({ appointments: res.data})
