@@ -167,9 +167,8 @@ class NewAppointments extends Component {
       //Save appointment to database if all fields are filled out.
       // Show form success message to user.
 
-      console.log('user id', this.state.userID)
-
       const userId = localStorage.getItem('userId');
+      console.log('user id', userId)
 
       AppointmentAPI.saveAppointment({
         appointmentName: this.state.appointmentName,

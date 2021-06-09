@@ -2,14 +2,12 @@ const router = require('express').Router();
 const path = require('path');
 const apiRoutes = require('./api');
 const Auth = require('./api/Auth');
-const htmlRoutes = require('./htmlRoutes');
 
 // a function which takes a passport and returns a router
 module.exports = function(passport, User) {
   // API Routes
   router.use('/api', apiRoutes(passport));
   router.use('/Auth', Auth(passport, User)); 
-  router.use('/appointmentslist', htmlRoutes); 
 
   // If no API routes are hit, send the React app
   router.use((req, res) => {

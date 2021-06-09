@@ -30,7 +30,7 @@ const AppointmentSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-const appointments = mongoose.model('appointments', AppointmentSchema);
+const Appointment = mongoose.model('appointments', AppointmentSchema);
 
 // Export the Appointment model
-module.exports = appointments;
+module.exports = Appointment;
