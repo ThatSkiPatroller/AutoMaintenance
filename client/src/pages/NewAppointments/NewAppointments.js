@@ -65,8 +65,6 @@ class NewAppointments extends Component {
     appointmentDate: "",
     appointmentTime: "",
     appointments: [],
-    Dealers: [],
-    clinics: [],
     appointmentNameError: "",
     appointmentDealerError: "",
     appointmentDateError: "",
@@ -76,8 +74,6 @@ class NewAppointments extends Component {
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
-    
-   
     console.log(this.props.match.params.id)
       this.setState({ dealerID: this.props.match.params.id})
   }
