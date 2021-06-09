@@ -107,7 +107,7 @@ class Appointments extends Component {
             </Grid>
 
             <div className="main-content-section">
-    <p> appointment {this.state.appointments}</p>
+            <p> appointment {this.state.appointments}</p>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Paper className={classes.root}>

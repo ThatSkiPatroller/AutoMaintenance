@@ -37,11 +37,17 @@ app.get('/user', function (req, res) {
 });
 
 
+app.get('/api/appointments', function (req, res) {
+  console.log('fdsfd')
+  db.Appointment
+  .findAll()
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
+});
+
 app.post('/api/appointments', function (req, res) {
   console.log('fdsfd')
-  
-  // Create a new Note in the db
-  db.Appointment
+    db.Appointment
   .create(req.body)
   .then(dbModel => res.json(dbModel))
   .catch(err => res.status(422).json(err));
