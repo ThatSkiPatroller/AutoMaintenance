@@ -49,12 +49,8 @@ app.get('/api/appointments', function (req, res) {
 
 
 mongoose.Promise = Promise;
-// configurePassport
 const configurePassport = require('./controllers/passport')
-
 const passport = configurePassport(app, mongoose, User)
-
-// Add routes, both API and view
 app.use(routes(passport, User));
 app.use(routes(passport, Appointment));
 
