@@ -164,20 +164,20 @@ class NewAppointments extends Component {
     }
 
     else {
-      //Save appointment to database if all fields are filled out.
-      // Show form success message to user.
-
       const userId = localStorage.getItem('userId');
       console.log('user id', userId)
 
       AppointmentAPI.saveAppointment({
         appointmentName: this.state.appointmentName,
-        doctor: this.state.dealerID,
+        dealerId: this.state.dealerID,
         date: this.state.appointmentDate,
         time: this.state.appointmentTime,
         userId: userId
       })
-        .then(res => this.loadAppointments())
+        .then(res => {
+          console.log("saved")
+          this.loadAppointments()
+        } )
         .catch(err => console.log(err));
 
       this.setState({

@@ -20,7 +20,7 @@ module.exports = function(passport){
 }
 */
 
-module.exports = function(passport, Appointment){
+module.exports = function(passport){
   router.post('/', (req, res) => {
     console.log('mmm')
     var newAppointment = new Appointment({
