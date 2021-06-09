@@ -17,5 +17,14 @@ module.exports = function(passport){
     .put(appointmentsController.update)
     .delete(appointmentsController.remove);
 
+  router.get('/', (req, res) => {
+      appointmentsController.findAll()
+      .then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
+      } )
+      .catch(err => res.status(422).json(err));
+  });
+
   return router;
 }
