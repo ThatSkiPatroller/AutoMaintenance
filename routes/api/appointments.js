@@ -8,7 +8,6 @@ const { Appointment } = require("../../models/appointment");
 module.exports = function(passport){
   router.route("/")
    // .get(isAuthenticated, appointmentsController.findAll)
-    .get(appointmentsController.findAll)
     .post(appointmentsController.create);
 
   // Matches with "/api/appointments/:id"
@@ -18,6 +17,7 @@ module.exports = function(passport){
     .delete(appointmentsController.remove);
 
   router.get('/', (req, res) => {
+    console.log("immm")
       appointmentsController.findAll()
       .then(dbModel => {
         console.log(dbModel)
