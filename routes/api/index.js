@@ -1,10 +1,11 @@
-const router = require('express').Router();
-const appointmentRoutes = require('./appointments');
+const path = require("path");
+const router = require("express").Router();
+const apiRoutes = require("./appointments");
 
+router.use("/appointments", apiRoutes);
 
-module.exports = function(passport){
-    // Appointments
-    router.use('/appointments', appointmentRoutes());
-    return router;
-}
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
+module.exports = router;

@@ -3,28 +3,28 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
+const apiRoutes = require('./dataroutes');
 const User = require('./models/User')
 const Appointment = require('./models/appointment')
-
 var MongoClient = require('mongodb').MongoClient;
-
 const PORT = process.env.PORT || 3013;
-// Yes, the app uses express.
 const app = express();
-
-// Configure body parser for axios requests
+const db = require('./models');
+const configurePassport = require('./controllers/passport')
+const passport = configurePassport(app, mongoose, User)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser)
 
-// Require all models
-const db = require('./models');
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-// Route for retrieving all Users from the db
-app.get('/user', function (req, res) {
+app.use(routes)
+
+
+/*app.get('/user', function (req, res) {
   // Find all Users
   db.User.find({})
     .then(function (dbUser) {
@@ -36,7 +36,7 @@ app.get('/user', function (req, res) {
       res.json(err);
     });
 });
-
+*/
 
 app.post('/api/appointments', function (req, res) {
   console.log('fdsfd')
@@ -54,21 +54,17 @@ app.get('/api/appointments', function (req, res) {
   .catch(err => res.status(422).json(err));
 });
 
-
-
 mongoose.Promise = Promise;
-const configurePassport = require('./controllers/passport')
-const passport = configurePassport(app, mongoose, User)
+
 app.use(routes(passport, User));
 app.use(routes(passport, Appointment));
 
-app.use(routes)
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 console.log(process.env.MONGODB_URI)
-
+app.use(apiRoutes)
 mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/automaintainancedb',
   {
     useNewUrlParser: true,

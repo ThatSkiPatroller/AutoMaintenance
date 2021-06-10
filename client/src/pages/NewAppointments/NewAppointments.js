@@ -166,7 +166,7 @@ class NewAppointments extends Component {
     else {
       const userId = localStorage.getItem('userId');
       console.log('user id', userId)
-
+      
       AppointmentAPI.saveAppointment({
         appointmentName: this.state.appointmentName,
         dealerId: this.state.dealerID,
@@ -175,7 +175,7 @@ class NewAppointments extends Component {
         userId: userId
       })
         .then(res => {
-          console.log("saved")
+          console.log(res)
           this.loadAppointments()
         } )
         .catch(err => console.log(err));

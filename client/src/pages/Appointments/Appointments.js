@@ -1,15 +1,22 @@
+// Importing React since we are using React.
 import React, { Component } from "react";
+// Importing the AppointmentsForm component.
 import AppointmentsForm from './AppointmentsForm';
+// Importing the AppointmentsList component.
 import AppointmentsList from './AppointmentsList';
+// Import API
 import AppointmentAPI from '../../utils/AppointmentAPI';
+// Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
+// Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 // Importing Navbar component.
 import NavBar from '../../Components/AppBar';
+import axios from "axios";
 
 //Style
 const styles = theme => ({
@@ -57,30 +64,37 @@ const styles = theme => ({
 class Appointments extends Component {
   state = {
     appointmentName: "",
-    appointmentDealer: "",
+    appointmentDoctor: "",
     appointmentDate: "",
     appointmentTime: "",
     appointments: [],
+    doctors: [],
+    clinics: [],
     appointmentNameError: "",
-    appointmentDealerError: "",
+    appointmentDoctorError: "",
     appointmentDateError: "",
     appointmentTimeError: "",
     formSuccessMessage: "",
+
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
-    console.log('mount')
-    this.loadAppointments()
+    axios.get('/api/appointments')
+    .then((res) =>{
+      console.log(res)
+    });
+
+    //this.loadAppointments();
+  //  this.loadDoctors();
+  //  this.loadClinics();
   }
 
   // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
-    console.log('inn')
     AppointmentAPI.getAppointments()
-      .then(res => {
-        console.log(res.data)
+      .then(res =>
         this.setState({ appointments: res.data})
-      })
+      )
       .catch(err => console.log(err));
   };
 
@@ -92,7 +106,94 @@ class Appointments extends Component {
   };
 
   
+
   
+
+  // Keep track of what user enters for appointment name so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
+  handleAppointmentNameChange = (event) => {
+    this.setState({ 
+      appointmentName: event.target.value,
+      appointmentNameError: "",
+      formSuccessMessage: "",
+    });
+  }
+
+  // Keep track of what user selects for doctor so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
+  handleAppointmentDoctorChange = (event) => {
+    this.setState({ 
+      appointmentDoctor: event.target.value,
+      appointmentDoctorError: "",
+      formSuccessMessage: "",
+    });
+  }
+
+  // Keep track of what user types into appointment date input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
+  handleAppointmentDateChange = (event) => {
+    this.setState({ 
+      appointmentDate: event.target.value,
+      appointmentDateError: "",
+      formSuccessMessage: "",
+    });
+  }
+
+  // Keep track of what user types into appointment time input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
+  handleAppointmentTimeChange = (event) => {
+    this.setState({ 
+      appointmentTime: event.target.value,
+      appointmentTimeError: "",
+      formSuccessMessage: "",
+    });
+  }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+        // If appointment name field is empty when user submits form, show error.
+    if (this.state.appointmentName === "") {
+      this.setState({
+        appointmentNameError: "Enter a name for the appointment."
+      })
+    }
+
+    // If the appointment doctor field is empty when user submits form, show error.
+    
+
+    // if the appointment date field is empty when user submits form, show error.
+    
+
+    // if the appointment time field is empty when user submits form, show error.
+    if (this.state.appointmentTime === "") {
+      this.setState({
+        appointmentTimeError: "Use the time picker to select the time of the appointment in HH:MM AM/PM format."
+      })
+    }
+
+    else {
+      //Save appointment to database if all fields are filled out.
+      // Show form success message to user.
+      AppointmentAPI.saveAppointment({
+        appointmentName: this.state.appointmentName,
+        //doctor: this.state.appointmentDoctor,
+        date: this.state.appointmentDate,
+        time: this.state.appointmentTime,
+      })
+        .then(res => this.loadAppointments())
+        .catch(err => console.log(err));
+
+      this.setState({
+          formSuccessMessage: `${this.state.appointmentName} with Dr. ${this.state.appointmentDoctor} on ${this.state.appointmentDate} added successfully!`,
+      });
+
+      
+      // Clear form
+      document.getElementById('appointment-form').reset();
+    }
+  };
+
   render() {
     const { classes } = this.props;
     return [
@@ -110,7 +211,6 @@ class Appointments extends Component {
             </Grid>
 
             <div className="main-content-section">
-          <p> appointment {this.state.appointments}</p>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Paper className={classes.root}>
@@ -119,7 +219,7 @@ class Appointments extends Component {
                         <TableHead>
                           <TableRow>
                             <TableCell><b>Name</b></TableCell>
-                            <TableCell><b>Dealer</b></TableCell>
+                            <TableCell><b>Doctor</b></TableCell>
                             <TableCell numeric><b>Date</b></TableCell>
                             <TableCell numeric><b>Time (HH:MM)</b></TableCell>
                             <TableCell></TableCell>
@@ -134,7 +234,7 @@ class Appointments extends Component {
                                 name={appointment.appointmentName}
                                 date={appointment.date}
                                 time={appointment.time}
-                                Dealer={appointment.Dealer}
+                                doctor={appointment.doctor}
                                 clinic={appointment.clinic}
                                 deleteAppointment={this.deleteAppointment}
                               />
@@ -147,7 +247,25 @@ class Appointments extends Component {
                 </Grid>
               </Grid>
 
-              
+              <Grid container spacing={24} className={classes.heading}>
+                <Grid item xs={12}>
+                  <AppointmentsForm
+                    doctors={this.state.doctors}
+                    clinics={this.state.clinics}
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleAppointmentNameChange={this.handleAppointmentNameChange}
+                    handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}
+                    handleAppointmentDateChange={this.handleAppointmentDateChange}
+                    handleAppointmentTimeChange={this.handleAppointmentTimeChange}
+                    handleAppointmentClinicChange={this.handleAppointmentClinicChange}
+                    appointmentNameError = {this.state.appointmentNameError}
+                    appointmentDoctorError = {this.state.appointmentDoctorError}
+                    appointmentDateError  = {this.state.appointmentDateError}
+                    appointmentTimeError = {this.state.appointmentTimeError}
+                    formSuccessMessage = {this.state.formSuccessMessage} 
+                  />
+                </Grid>
+              </Grid>
             </div>
           </div>
         </main>

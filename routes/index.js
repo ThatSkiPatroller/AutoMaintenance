@@ -6,12 +6,9 @@ const htmlRoutes = require('./htmlRoutes');
 
 // a function which takes a passport and returns a router
 module.exports = function(passport, User) {
-  // API Routes
-  router.use('/api', apiRoutes(passport));
+  router.use('/api', apiRoutes);
   router.use('/Auth', Auth(passport, User)); 
-  router.use('/appointmentlist', htmlRoutes); 
-
-  // If no API routes are hit, send the React app
+  
   router.use((req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });

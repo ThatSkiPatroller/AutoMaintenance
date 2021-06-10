@@ -3,6 +3,14 @@ const db = require('../models/appointment');
 // Defining methods for the appointmentsController
 module.exports = {
   findAll: function(req, res) {
+    console.log("niinn")
+    db.Appointment
+        .find(req.query)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+  }
+
+  /*findAll: function(req, res) {
       db.Appointment
           .findAll()
           .then(dbModel => {
@@ -10,7 +18,8 @@ module.exports = {
             res.json(dbModel)
           } )
           .catch(err => res.status(422).json(err));
-  },
+  }*/
+  ,
   create: function(req, res) {
       db.Appointment
           .create(req.body)
@@ -20,7 +29,10 @@ module.exports = {
   findById: function(req, res) {
     db.Appointment
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log("ff")
+        res.json(dbModel)
+      } )
       .catch(err => console.log('the findbyid appointment is not working in appointmentscontroller.js error: ' + err));
     //res.status(422).json(err));
   },

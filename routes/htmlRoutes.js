@@ -1,4 +1,3 @@
-const appointmentsController = require("../../controllers/appointmentsController");
 
 
 module.exports = function(){

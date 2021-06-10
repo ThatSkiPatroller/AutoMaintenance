@@ -2,9 +2,14 @@ import axios from 'axios';
 
 export default {
   // Gets all appointments
+  findAppointments : function(){
+    return axios.get("/api/books");
+  },
+
+
   getAppointments() {
     console.log('in get appot ')
-    return axios.get('/appointmentlist');
+    return axios.get('/api/appointments');
   },
   // Saves an appointment to the database
   saveAppointment(appointmentData) {
@@ -15,11 +20,9 @@ export default {
   getAppointment(id) {
     return axios.get(`/api/appointments/${id}`);
   },
-  // Deletes the appointment with the given id
   deleteAppointment(id) {
     return axios.delete(`/api/appointments/${id}`);
   },
-  // update an appointment in the database
   updateAppointment(id) {
     return axios.put(`/api/appointments/${id}`);
   },
