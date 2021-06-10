@@ -17,7 +17,7 @@ const CarSchema = new Schema({
   year: {
     type: String,
     trim: true,
-  },
+  }, 
 });
 
 const Cars = mongoose.model('cars', CarSchema);
