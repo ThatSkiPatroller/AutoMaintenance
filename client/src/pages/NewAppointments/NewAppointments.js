@@ -65,8 +65,6 @@ class NewAppointments extends Component {
     appointmentDate: "",
     appointmentTime: "",
     appointments: [],
-    Dealers: [],
-    clinics: [],
     appointmentNameError: "",
     appointmentDealerError: "",
     appointmentDateError: "",
@@ -76,8 +74,6 @@ class NewAppointments extends Component {
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
-    
-   
     console.log(this.props.match.params.id)
       this.setState({ dealerID: this.props.match.params.id})
   }
@@ -85,9 +81,10 @@ class NewAppointments extends Component {
   // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
     AppointmentAPI.getAppointments()
-      .then(res =>
+      .then(res => {
+        console.log(res.data)
         this.setState({ appointments: res.data})
-      )
+      })
       .catch(err => console.log(err));
   };
 
@@ -167,25 +164,24 @@ class NewAppointments extends Component {
     }
 
     else {
-      //Save appointment to database if all fields are filled out.
-      // Show form success message to user.
-
-      console.log('user id', this.state.userID)
-
       const userId = localStorage.getItem('userId');
+      console.log('user id', userId)
 
       AppointmentAPI.saveAppointment({
         appointmentName: this.state.appointmentName,
-        doctor: this.state.dealerID,
+        dealerId: this.state.dealerID,
         date: this.state.appointmentDate,
         time: this.state.appointmentTime,
         userId: userId
       })
-        .then(res => this.loadAppointments())
+        .then(res => {
+          console.log("saved")
+          this.loadAppointments()
+        } )
         .catch(err => console.log(err));
 
       this.setState({
-          formSuccessMessage: `${this.state.appointmentName} with Dr. ${this.state.appointmentDealer} on ${this.state.appointmentDate} added successfully!`,
+          formSuccessMessage: `${this.state.appointmentName} with ${this.state.dealerID} on ${this.state.appointmentDate} added successfully!`,
       });
 
       

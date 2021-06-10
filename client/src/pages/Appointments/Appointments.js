@@ -7,7 +7,6 @@ import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Ta
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
-// Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 // Importing Navbar component.
 import NavBar from '../../Components/AppBar';
@@ -62,14 +61,11 @@ class Appointments extends Component {
     appointmentDate: "",
     appointmentTime: "",
     appointments: [],
-    Dealers: [],
-    clinics: [],
     appointmentNameError: "",
     appointmentDealerError: "",
     appointmentDateError: "",
     appointmentTimeError: "",
     formSuccessMessage: "",
-
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
@@ -79,9 +75,10 @@ class Appointments extends Component {
   // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
     AppointmentAPI.getAppointments()
-      .then(res =>
+      .then(res => {
+        console.log(res.data)
         this.setState({ appointments: res.data})
-      )
+      })
       .catch(err => console.log(err));
   };
 
@@ -92,105 +89,8 @@ class Appointments extends Component {
       .catch(err => console.log(err));
   };
 
-  //Loads all Dealers and saves them to this.state.Dealers.
- 
-
-  // Keep track of what user enters for appointment name so that input can be grabbed later.
-  // If form validation error is showing, remove error from page when user starts typing.
-  handleAppointmentNameChange = (event) => {
-    this.setState({ 
-      appointmentName: event.target.value,
-      appointmentNameError: "",
-      formSuccessMessage: "",
-    });
-  }
-
-  // Keep track of what user selects for Dealer so that input can be grabbed later.
-  // If form validation error is showing, remove error from page when user starts typing.
-  handleAppointmentDealerChange = (event) => {
-    this.setState({ 
-      appointmentDealer: event.target.value,
-      appointmentDealerError: "",
-      formSuccessMessage: "",
-    });
-  }
-
-  // Keep track of what user types into appointment date input field so that input can be grabbed later.
-  // If form validation error is showing, remove error from page when user starts typing.
-  handleAppointmentDateChange = (event) => {
-    this.setState({ 
-      appointmentDate: event.target.value,
-      appointmentDateError: "",
-      formSuccessMessage: "",
-    });
-  }
-
-  // Keep track of what user types into appointment time input field so that input can be grabbed later.
-  // If form validation error is showing, remove error from page when user starts typing.
-  handleAppointmentTimeChange = (event) => {
-    this.setState({ 
-      appointmentTime: event.target.value,
-      appointmentTimeError: "",
-      formSuccessMessage: "",
-    });
-  }
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-
-        // If appointment name field is empty when user submits form, show error.
-    if (this.state.appointmentName === "") {
-      this.setState({
-        appointmentNameError: "Enter a name for the appointment."
-      })
-    }
-
-    // If the appointment Dealer field is empty when user submits form, show error.
-    if (this.state.appointmentDealer === "") {
-      this.setState({
-        appointmentDealerError: "Select the Dealer associated with the appointment from the drop-down list."
-      })
-    }
-
-    // if the appointment date field is empty when user submits form, show error.
-    if (this.state.appointmentDate === "" || this.state.appointmentDate === "mm/dd/yyyy") {
-      this.setState({
-        appointmentDateError: "Use the date picker to select the date of the appointment."
-      })
-    }
-
-    // if the appointment time field is empty when user submits form, show error.
-    if (this.state.appointmentTime === "") {
-      this.setState({
-        appointmentTimeError: "Use the time picker to select the time of the appointment in HH:MM AM/PM format."
-      })
-    }
-
-    else {
-      console.log('user id', this.state.userID)
-      console.log('user id', this.state.userID)
-
-      //Save appointment to database if all fields are filled out.
-      // Show form success message to user.
-      AppointmentAPI.saveAppointment({
-        appointmentName: "this.state.appointmentName",
-        date: this.state.appointmentDate,
-        time: this.state.appointmentTime,
-       
-      })
-        .then(res => this.loadAppointments())
-        .catch(err => console.log(err));
-
-      this.setState({
-          formSuccessMessage: `${this.state.appointmentName} with Dr. ${this.state.appointmentDealer} on ${this.state.appointmentDate} added successfully!`,
-      });
-
-      
-      // Clear form
-      document.getElementById('appointment-form').reset();
-    }
-  };
-
+  
+  
   render() {
     const { classes } = this.props;
     return [
@@ -208,6 +108,7 @@ class Appointments extends Component {
             </Grid>
 
             <div className="main-content-section">
+          <p> appointment {this.state.appointments}</p>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Paper className={classes.root}>

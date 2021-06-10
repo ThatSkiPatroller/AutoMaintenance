@@ -2,11 +2,12 @@
 const router = require("express").Router();
 const appointmentsController = require("../../controllers/appointmentsController");
 const isAuthenticated = require('../isAuthenticated')
+const { Appointment } = require("../../models/appointment");
+
 
 module.exports = function(passport){
-  // Matches with "/api/appointments"
   router.route("/")
-    .get(isAuthenticated, appointmentsController.findAll)
+   // .get(isAuthenticated, appointmentsController.findAll)
     .post(appointmentsController.create);
 
   // Matches with "/api/appointments/:id"
@@ -15,19 +16,15 @@ module.exports = function(passport){
     .put(appointmentsController.update)
     .delete(appointmentsController.remove);
 
+  router.get('/', (req, res) => {
+    console.log("immm")
+      appointmentsController.findAll()
+      .then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
+      } )
+      .catch(err => res.status(422).json(err));
+  });
+
   return router;
 }
-
-// // Matches with "/api/appointments"
-// router.route("/")
-//   .get(appointmentsController.findAll)
-//   .post(appointmentsController.create);
-
-// // Matches with "/api/appointments/:id"
-// router.route("/:id")
-//   .get(appointmentsController.findById)
-//   .put(appointmentsController.update)
-//   .delete(appointmentsController.remove);
-
-// module.exports = router;
-
