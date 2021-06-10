@@ -89,8 +89,6 @@ class Appointments extends Component {
       .catch(err => console.log(err));
   };
 
-  
-  
   render() {
     const { classes } = this.props;
     return [
@@ -106,7 +104,6 @@ class Appointments extends Component {
                 </Typography>
               </Grid>
             </Grid>
-
             <div className="main-content-section">
           <p> appointment {this.state.appointments}</p>
               <Grid container spacing={24}>
@@ -144,8 +141,6 @@ class Appointments extends Component {
                   </Paper>
                 </Grid>
               </Grid>
-
-              
             </div>
           </div>
         </main>

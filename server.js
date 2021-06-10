@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const User = require('./models/User')
 const Appointment = require('./models/appointment')
+const Cars = require('./models/cars')
 
 var MongoClient = require('mongodb').MongoClient;
 
@@ -37,7 +38,6 @@ app.get('/user', function (req, res) {
     });
 });
 
-
 app.post('/api/appointments', function (req, res) {
   console.log('fdsfd')
   db.Appointment
@@ -54,13 +54,26 @@ app.get('/api/appointments', function (req, res) {
   .catch(err => res.status(422).json(err));
 });
 
+app.post('/api/cars', function (req, res) {
+  db.Cars
+  .create(req.body)
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
+})
 
+app.get('/api/cars', function (req, res) {
+  db.Cars
+  .findAll()
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err))
+})
 
 mongoose.Promise = Promise;
 const configurePassport = require('./controllers/passport')
 const passport = configurePassport(app, mongoose, User)
 app.use(routes(passport, User));
 app.use(routes(passport, Appointment));
+app.use(routes(passport, Cars))
 
 app.use(routes)
 
