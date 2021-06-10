@@ -9,6 +9,7 @@ import Appointments from './pages/Appointments';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NewAppointments from './pages/NewAppointments';
+import AddCar from './pages/AddCar'
 
 // App theme customization.
 const theme = createMuiTheme({
@@ -43,6 +44,7 @@ class App extends Component {
               <Route exact path="/dealers" component={DealerList} />
               <Route exact path="/appointments" component={Appointments} />
               <Route exact path="/newappointment/:id" component={NewAppointments} />
+              <Route exact path="/addcar" component={AddCar} />
               </Switch>
           </div>
         </Router>

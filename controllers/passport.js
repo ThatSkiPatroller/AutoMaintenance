@@ -29,14 +29,13 @@ module.exports = function(app, mongoose, User) {
         mongooseConnection: db,
         touchAfter: 24 * 3600,
         autoRemove: 'disabled',
-        mongoUrl: 'mongodb+srv://root:root1234@cluster0.ibmqv.mongodb.net/automaintainancedb?retryWrites=true&w=majority'
+        mongoUrl: 'mongodb://localhost/automaintainancedb'
       }),
     
       resave: false,
       saveUninitialized: true
     })
   );
-
   
   app.use(passport.initialize());
   app.use(passport.session());
