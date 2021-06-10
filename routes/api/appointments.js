@@ -22,7 +22,7 @@ module.exports = function(passport){
       .then(dbModel => {
         console.log(dbModel)
         res.json(dbModel)
-      } )
+      })
       .catch(err => res.status(422).json(err));
   });
 

@@ -4,7 +4,7 @@ export default {
   // Gets all appointments
   getAppointments() {
     console.log('in get appot ')
-    return axios.get('/api/appointments');
+    return axios.get('/appointmentlist');
   },
   // Saves an appointment to the database
   saveAppointment(appointmentData) {

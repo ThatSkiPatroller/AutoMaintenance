@@ -43,6 +43,7 @@ class App extends Component {
               <Route exact path="/dealers" component={DealerList} />
               <Route exact path="/appointments" component={Appointments} />
               <Route exact path="/newappointment/:id" component={NewAppointments} />
+
               </Switch>
           </div>
         </Router>

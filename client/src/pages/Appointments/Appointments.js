@@ -69,11 +69,13 @@ class Appointments extends Component {
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
+    console.log('mount')
     this.loadAppointments()
   }
 
   // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
+    console.log('inn')
     AppointmentAPI.getAppointments()
       .then(res => {
         console.log(res.data)
