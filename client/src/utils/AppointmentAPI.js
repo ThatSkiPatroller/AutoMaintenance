@@ -13,7 +13,7 @@ export default {
   },
   // Saves an appointment to the database
   saveAppointment(appointmentData) {
-    console.log(appointmentData)
+    console.log("inn save " + appointmentData)
     return axios.post('/api/appointments', appointmentData);
   },
   // get a specific appointment's id

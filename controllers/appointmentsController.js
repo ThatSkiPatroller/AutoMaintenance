@@ -4,10 +4,20 @@ const db = require('../models/appointment');
 module.exports = {
   findAll: function(req, res) {
     console.log("niinn")
-    db.Appointment
+    
+    db.Appointment.find({})
+    .then(function (dbModel) {
+      console.log("ftrt")
+      res.json(dbModel);
+    })
+    .catch(function (err) {
+      res.json(err);
+    });
+
+   /* db.Appointment
         .find(req.query)
         .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+        .catch(err => res.status(422).json(err));*/
   }
 
   /*findAll: function(req, res) {
