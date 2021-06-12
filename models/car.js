@@ -20,6 +20,16 @@ const carSchema = new Schema({
     trim: true,
     required: 'Make is required',
   },
+  carMileage: {
+    type: String,
+    trim: true,
+    required: 'Mileage is required',
+  },
+  carYear: {
+    type: String,
+    trim: true,
+    required: 'Year is required',
+  },
   lastMaintainanceDate: {
     type: String,
     trim: true,

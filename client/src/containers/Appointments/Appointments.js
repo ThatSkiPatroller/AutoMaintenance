@@ -113,6 +113,8 @@ class Appointments extends Component {
     });
 
    };
+
+   
    
    
   handleAppointmentDetails = id => { 
