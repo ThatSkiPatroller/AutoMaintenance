@@ -1,15 +1,22 @@
+// Importing React since we are using React.
 import React, { Component } from 'react';
+// Importing React Router to add page routes.
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// Importing material-ui theme.
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+// Importing css
 import './App.css';
+// Importing Footer component.
 import Footer from './Components/Footer';
-import Home from './pages/Home';
-import DealerList from './pages/DealerList';
-import Appointments from './pages/Appointments';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import NewAppointments from './pages/NewAppointments';
-import AddCar from './pages/AddCar'
+// Importing Home page component.
+import Home from './containers/Home';
+import Appointments from './containers/Appointments';
+import Login from './containers/Login';
+import Signup from './containers/Signup';
+import NoMatch from './containers/NoMatch';
+import Dealers from './containers/Dealers';
+import NewAppointment from './containers/NewAppointments'
+import AddCar from './containers/AddCar'
 
 // App theme customization.
 const theme = createMuiTheme({
@@ -41,11 +48,12 @@ class App extends Component {
               <Route exact path="/signup" component={Signup} 
                 loggedInUser = {this.state.currentlyLoggedInUser}/>
               <Route exact path="/home" component={Home} />
-              <Route exact path="/dealers" component={DealerList} />
               <Route exact path="/appointments" component={Appointments} />
-              <Route exact path="/newappointment/:id" component={NewAppointments} />
+              <Route exact path="/dealers" component={Dealers} />
+              <Route exact path="/newappointment/:id" component={NewAppointment} />
               <Route exact path="/addcar" component={AddCar} />
-              </Switch>
+              <Route component={NoMatch} />
+            </Switch>
           </div>
         </Router>
         <Footer />

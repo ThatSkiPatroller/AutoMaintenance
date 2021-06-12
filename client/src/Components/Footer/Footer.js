@@ -5,29 +5,46 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
+const styles = {
+  root: {
+    width: 500,
+  },
+  copyright: {
+    marginTop: 10,
+    backgroundColor: '#33658A',
+    color: 'white',
+  },
+  footerContent: {
+    backgroundColor: '#33658A',
+    color: 'white',
+  },
+  button: {
+    color: 'white',
+    float: 'right',
+    marginBottom: 60,
+  },
+};
+
 class Footer extends React.Component {
   render() {
     const { classes } = this.props;
 
     return (
-      <React.Fragment>
-        <Card className="footer">
+      <Card className="footer">
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2" className="footer-content">
-            Auto Maintainance
+          <Typography gutterBottom variant="headline" component="h2" className={classes.footerContent}>
+            AutoMaintainance
           </Typography>
-          <Typography component="p" className="footer-content">
+          <Typography component="p" className={classes.footerContent}>
           </Typography>
-          <Typography component="p" className="copyright">
+          <Typography component="p" className={classes.copyright}>
             Copyright &copy; 2021
           </Typography>
         </CardContent>
       </Card>
-      </React.Fragment>
-      
     );
   }
 }
 
 // Exporting the footer component with styling.
-export default Footer;
+export default withStyles(styles)(Footer);

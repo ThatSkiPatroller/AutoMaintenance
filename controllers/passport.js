@@ -3,9 +3,7 @@ module.exports = function(app, mongoose, User) {
   const passport = require('passport');
   // a middleware which sets up sessions
   const session = require('express-session');
-
-  const MongoStore = require('connect-mongo')
-
+  const MongoStore = require('connect-mongo')(session);
   // this allows us to create an authentication system
   // with a username and password
   const LocalStrategy = require('passport-local');
@@ -25,18 +23,15 @@ module.exports = function(app, mongoose, User) {
   app.use(
     session({
       secret: 'french toast',
-      store: MongoStore.create({
+      store: new MongoStore({
         mongooseConnection: db,
         touchAfter: 24 * 3600,
-        autoRemove: 'disabled',
-        mongoUrl: 'mongodb://localhost/automaintainancedb'
+        autoRemove: 'disabled'
       }),
-    
       resave: false,
       saveUninitialized: true
     })
   );
-  
   app.use(passport.initialize());
   app.use(passport.session());
 
