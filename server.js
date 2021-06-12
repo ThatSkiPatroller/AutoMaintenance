@@ -46,15 +46,15 @@ app.get('/user', function (req, res) {
 // Route for saving a new Health Log to the db and associating it with a User
 app.post('/submit', function (req, res) {
   // Create a new Note in the db
-  db.healthLog.create(req.body)
-    .then(function (dbHealthLog) {
+  db.data.create(req.body)
+    .then(function (data) {
       // If a Health Log was created successfully,
       // find one User and push the new Log's _id to the User's `healthLog` array
       // { new: true } tells the query that we want it to return the updated User --
       // it returns the original by default
       // Since our mongoose query returns a promise, we can chain another
       // `.then` which receives the result of the query
-      return db.User.findOneAndUpdate({}, { $push: { notes: dbHealthLog._id } }, { new: true });
+      return db.User.findOneAndUpdate({}, { $push: { notes: data._id } }, { new: true });
     })
     .then(function (dbUser) {
       // If the User was updated successfully, send it back to the client
