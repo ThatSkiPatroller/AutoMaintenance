@@ -60,8 +60,6 @@ class AddCarForm extends React.Component {
 
   render() {
     const { classes, doctors } = this.props;
-    console.log(doctors);
-
     return (
         <Card className={classes.root}>
           <CardContent>
@@ -153,8 +151,7 @@ class AddCarForm extends React.Component {
                     </Tooltip>
                   </span>
                 </InputLabel>
-                <TextField
-                  id="year"
+                <TextField id="year"
                   type="text"
                   className={classes.textField}
                   InputLabelProps={{
@@ -166,6 +163,32 @@ class AddCarForm extends React.Component {
                 <Typography className={classes.formError} component="p">{this.props.carYearError}</Typography>
               </FormControl>
               
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel>
+                  <span>
+                    Mileage
+                    <Tooltip  
+                      title="Enter the Car Mileage"
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField
+                  id="mileage"
+                  type="text"
+                  className={classes.textField}
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  value={this.props.carMileage}
+                  onChange={this.props.handleCarMileageChange}
+                />
+                <Typography className={classes.formError} component="p">{this.props.carMileageError}</Typography>
+              </FormControl>
+
+          
+            
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel>
                   <span>

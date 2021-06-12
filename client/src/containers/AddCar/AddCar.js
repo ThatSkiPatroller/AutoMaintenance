@@ -36,6 +36,8 @@ class AddCar extends Component {
     carMakeError: "",
     carModelError: "",
     carYearError: "",
+    carMileageError: "",
+    carMileage: "",
     carlastMaintainaceError: "",
     formSuccessMessage: "",
   };
@@ -74,18 +76,27 @@ class AddCar extends Component {
     handleCarMakeChange = (event) => {
       this.setState({ 
         carMake: event.target.value,
-        carNameError: "",
+        carMakeError: "",
         formSuccessMessage: "",
       });
   }
+  handleCarMileageChange = (event) => {
+    this.setState({ 
+      carMileage: event.target.value,
+      carMileageError: "",
+      formSuccessMessage: "",
+    });
+    console.log(this.state.carMileage)
+}
 
   handleCarModelChange = (event) => {
     this.setState({ 
       carModel: event.target.value,
-      carMakeError: "",
+      carModelError: "",
       formSuccessMessage: "",
     });
 }
+
 
 handleCarYearChange = (event) => {
   this.setState({ 
@@ -108,15 +119,8 @@ handleCarYearChange = (event) => {
         });
     }
 
-    // Keep track of what user types into number of tablets input field so that input can be grabbed later.
-    // If form validation error is showing, remove error from page when user starts typing.
-    handleCarAmountChange = (event) => {
-        this.setState({ 
-          CarAmount: event.target.value,
-          CarAmountError: "",
-          formSuccessMessage: "",
-        });
-    }
+
+    
     handleFormSubmit = event => {
         event.preventDefault();
         console.log("submi")
@@ -147,6 +151,12 @@ handleCarYearChange = (event) => {
             carYearError: "Enter the Car Year."
           })
         }
+        
+        if (this.state.carMileage === "") {
+          this.setState({
+            carMileageError: "Enter the Car Mileage."
+          })
+        }
 
         else {
           CarAPI.saveCar({
@@ -154,6 +164,7 @@ handleCarYearChange = (event) => {
               carModel: this.state.carModel,
               carMake: this.state.carMake,
               carYear: this.state.carYear,
+              carMileage: this.state.carMileage,
               lastMaintainanceDate: this.state.lastMaintainanceDate,
           })
               .then(res => this.loadCars())
@@ -188,21 +199,23 @@ handleCarYearChange = (event) => {
                 <Grid container spacing={16}>
                   <Grid item xs={12} sm={12} md={6}>
                     <CarsForm
-                      doctors={this.state.doctors}
                       handleFormSubmit={this.handleFormSubmit}
                       handleCarNameChange={this.handleCarNameChange}
                       handleCarMakeChange={this.handleCarMakeChange}
                       handleCarModelChange={this.handleCarModelChange}
                       handleCarYearChange={this.handleCarYearChange}
+                      handleCarMileageChange={this.handleCarMileageChange}
                       handleCarLastMaintainancedateChange={this.handleCarLastMaintainancedateChange}
                       carNameError = {this.state.carNameError}
                       carMakeError = {this.state.carMakeError}
                       carModelError = {this.state.carModelError}
                       carYearError = {this.state.carYearError}
+                      carMileageError = {this.state.carMileageError}
                       carName = {this.state.carName}
                       carMake = {this.state.carMake}
                       carModel = {this.state.carModel}
                       carYear = {this.state.carYear}
+                      carMileage = {this.state.carMileage}
                       lastMaintainanceDate = {this.state.lastMaintainanceDate}
                       formSuccessMessage = {this.state.formSuccessMessage}
                     />
@@ -217,6 +230,7 @@ handleCarYearChange = (event) => {
                           carModel={car.carModel}
                           carMake={car.carMake}
                           carYear={car.carYear}
+                          carMileage={car.carMileage}
                           lastMaintainanceDate={car.lastMaintainanceDate}
                           deleteCar={this.deleteCar}
                         />
