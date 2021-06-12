@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
             LOGIN
             </Typography>
             <Typography gutterBottom component="p" align="center">
-            Enter your credentials to LOG IN or click SIGN UP to create an account.
+            Enter your HealthTracker credentials to LOG IN or click SIGN UP to create an account.
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>

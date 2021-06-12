@@ -38,7 +38,7 @@ class Footer extends React.Component {
           <Typography component="p" className={classes.footerContent}>
           </Typography>
           <Typography component="p" className={classes.copyright}>
-            Copyright &copy; 2021
+            Copyright &copy; 2018
           </Typography>
         </CardContent>
       </Card>
