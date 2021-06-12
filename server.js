@@ -83,10 +83,12 @@ app.get('/populateduser', function (req, res) {
 });
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
+//mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
+mongoose.connect(process.env.MONGODB_URI);
 
 // If deployed, use the deployed database. Otherwise use the local reacthealthtracker database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/reacthealthtracker";
+//var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/reacthealthtracker";
+var MONGODB_URI = process.env.MONGODB_URI;
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
