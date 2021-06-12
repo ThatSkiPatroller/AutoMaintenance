@@ -42,7 +42,7 @@
   "engines": {
     "node": "8.11.3"
   },
-  "description": "HealthTracker is a MERN stack application that allows you to log and keep track of your health information so that you can easily share and discuss that information with your doctor at your next visit.",
+  "description": "Automaintainace is a MERN stack application that allows you to keep track",
   "keywords": [],
   "author": "",
   "license": "ISC"
