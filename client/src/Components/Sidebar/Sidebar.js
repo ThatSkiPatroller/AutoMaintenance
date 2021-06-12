@@ -48,7 +48,7 @@ class Sidebar extends React.Component {
               </ListItemText>
             </ListItem>
            
-           
+          
             <ListItem className={classes.navItem} component={Link} to="/appointments">
               <ListItemText>
                 <Tooltip
@@ -59,28 +59,30 @@ class Sidebar extends React.Component {
                 </Tooltip>
               </ListItemText>
             </ListItem>
+           
+            <ListItem className={classes.navItem} component={Link} to="/addcar">
+              <ListItemText>
+                <Tooltip
+                  title="Add car"
+                  placement="top"
+                >
+                  <IconButton><i className="fas fa-taxi" /></IconButton >
+                </Tooltip>
+              </ListItemText>
+            </ListItem>
             
-            <ListItem className={classes.navItem} component={Link} to="/Dealers">
+          
+
+            <ListItem className={classes.navItem} component={Link} to="/dealers">
               <ListItemText>
                 <Tooltip
                   title="Dealers"
                   placement="top"
                 >
-                  <IconButton><i className="fas fa-taxi" /></IconButton>
+                  <IconButton><i className="fas fa-search"/></IconButton >
                 </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem className={classes.navItem} component={Link} to="/addcar">
-              <ListItemText>
-                <Tooltip
-                  title="AddCars"
-                  placement="top"
-                >
-                  <IconButton><i className="fas fa-plus-circle" /></IconButton>
-                </Tooltip>
-              </ListItemText>
-            </ListItem>
-           
           </List>
         </Drawer>
       </Hidden>

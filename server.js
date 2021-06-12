@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 const User = require('./models/User')
-const Appointment = require('./models/appointment')
-const Cars = require('./models/cars')
 
-var MongoClient = require('mongodb').MongoClient;
+// USER AUTH REQUIREMENTS:
+//const passport = require('./passport');
 
-const PORT = process.env.PORT || 3013;
+// Server will use port 3001.
+const PORT = process.env.PORT || 3001;
 // Yes, the app uses express.
 const app = express();
 
@@ -24,6 +24,10 @@ const db = require('./models');
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
+
+// // Add routes, both API and view
+// app.use(routes);
+
 // Route for retrieving all Users from the db
 app.get('/user', function (req, res) {
   // Find all Users
@@ -38,58 +42,74 @@ app.get('/user', function (req, res) {
     });
 });
 
-app.post('/api/appointments', function (req, res) {
-  console.log('fdsfd')
-  db.Appointment
-  .create(req.body)
-  .then(dbModel => res.json(dbModel))
-  .catch(err => res.status(422).json(err));
+
+// Route for saving a new Health Log to the db and associating it with a User
+app.post('/submit', function (req, res) {
+  // Create a new Note in the db
+  db.data.create(req.body)
+    .then(function (data) {
+      // If a Health Log was created successfully,
+      // find one User and push the new Log's _id to the User's `healthLog` array
+      // { new: true } tells the query that we want it to return the updated User --
+      // it returns the original by default
+      // Since our mongoose query returns a promise, we can chain another
+      // `.then` which receives the result of the query
+      return db.User.findOneAndUpdate({}, { $push: { notes: data._id } }, { new: true });
+    })
+    .then(function (dbUser) {
+      // If the User was updated successfully, send it back to the client
+      res.json(dbUser);
+    })
+    .catch(function (err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
 });
 
-app.get('/api/appointments', function (req, res) {
-  console.log('fdsfd')
-  db.Appointment
-  .findAll()
-  .then(dbModel => res.json(dbModel))
-  .catch(err => res.status(422).json(err));
+// Route to get all User's and populate them with their notes
+app.get('/populateduser', function (req, res) {
+  // Find all users
+  db.User.find({})
+    // Specify that we want to populate the retrieved users with any associated notes
+    .populate('healthLog')
+    .then(function (dbUser) {
+      // If able to successfully find and associate all Users and Health Logs,
+      // send them back to the client
+      res.json(dbUser);
+    })
+    .catch(function (err) {
+      // If an error occurs, send it back to the client
+      res.json(err);
+    });
 });
 
-app.post('/api/cars', function (req, res) {
-  db.Cars
-  .create(req.body)
-  .then(dbModel => res.json(dbModel))
-  .catch(err => res.status(422).json(err));
-})
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
 
-app.get('/api/cars', function (req, res) {
-  db.Cars
-  .findAll()
-  .then(dbModel => res.json(dbModel))
-  .catch(err => res.status(422).json(err))
-})
+// If deployed, use the deployed database. Otherwise use the local reacthealthtracker database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/reacthealthtracker";
 
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
 mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
+});
+
+// configurePassport
 const configurePassport = require('./controllers/passport')
+
 const passport = configurePassport(app, mongoose, User)
+
+// Add routes, both API and view
 app.use(routes(passport, User));
-app.use(routes(passport, Appointment));
-app.use(routes(passport, Cars))
 
-app.use(routes)
-
+// Send every request to the React app
+// Define any API routes before this runs
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
-console.log(process.env.MONGODB_URI)
 
-mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/automaintainancedb',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  }
-);
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });

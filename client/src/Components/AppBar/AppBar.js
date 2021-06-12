@@ -42,7 +42,7 @@ function NavBar(props) {
         <Toolbar>
           <HamburgerMenu className={classes.menuButton} aria-label="Menu" />
             <Typography variant="title" color="inherit" className={classes.flex} component={Link} to="/home">
-              Auto Maintainance
+              HealthTracker
             </Typography>
             <Button className={classes.button} onClick={() => {
               axios.post('/Auth/logout').then(data => console.log(data))

@@ -2,17 +2,8 @@ const mongoose = require('mongoose');
 
 // Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
-
-// more about RegEx Patterns here https://www.regexbuddy.com/regex.html
-
-// To create an appointment, we will require the following: date, time
-// Dealer, clinic, and name of appointment.
-// new AppointmentSchema object for login purposes
 const AppointmentSchema = new Schema({
-  userId: {
-    type: String,
-    trim: true,
-  },
+  //this is reason for visit
   appointmentName: {
     type: String,
     trim: true,
@@ -25,12 +16,49 @@ const AppointmentSchema = new Schema({
   time: {
     type: String,
     trim: true,
-    required: 'Time is required',
+    required: 'Address is required',
   },
+  //this is reason for visit
+  dealerName: {
+    type: String,
+    trim: true,
+  },
+  dealerId: {
+    type: String,
+    trim: true,
+  },
+  dealerAddress: {
+    type: String,
+    trim: true,
+  },
+  dealerPhoneNo: {
+    type: String,
+    trim: true,
+  },
+  isOvernight: {
+    type: String,
+    trim: true,
+  },
+  isPickUp: {
+    type: String,
+    trim: true,
+  },
+  isDropOff: {
+    type: String,
+    trim: true,
+  },
+  userCreated: {
+    type: Date,
+    default: Date.now,
+  },
+  description: {
+    type: String,
+    trim: true,
+  }
 });
 
 // This creates our model from the above schema, using mongoose's model method
-const Appointment = mongoose.model('appointments', AppointmentSchema);
+const Appointment = mongoose.model('Appointment', AppointmentSchema);
 
 // Export the Appointment model
 module.exports = Appointment;

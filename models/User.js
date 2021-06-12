@@ -48,6 +48,10 @@ const UserSchema = new Schema({
       'Password should be longer.',
     ],
   },
+  // `email` must be of type String
+  // `email` must be unique
+  // `email` must match the regex pattern below and throws a custom error message if it does not
+  // meaning it must have the normal email formating.
   email: {
     type: String,
     unique: true,
@@ -58,6 +62,72 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  // `doctors` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated Doctors
+  doctors: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'Doctor',
+    },
+  ],
+  // `clinics` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated clinics
+  clinics: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'Clinic',
+    },
+  ],
+  // `healthLog` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated medLog
+  healthLogs: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'HealthLog',
+    },
+  ],
+  // `prescriptions` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated prescriptions
+  prescriptions: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'Prescription',
+    },
+  ],
+    // `attachment` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated attachment
+  attachments: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'Attachement',
+    },
+  ],
+    // `symptoms` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated symptoms
+  symptoms: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'Symptoms',
+    },
+  ],
 });
 
 // This creates our model from the above schema, using mongoose's model method
