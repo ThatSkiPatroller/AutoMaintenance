@@ -16,7 +16,6 @@ const app = express();
 // Configure body parser for axios requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 // Require all models
 const db = require('./models');
 
