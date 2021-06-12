@@ -1,3 +1,5 @@
+
+  
   /* Color Scheme */
   /* https://coolors.co/33658a-86bbd8-2f4858-f6ae2d-f26419*/
   
@@ -18,7 +20,7 @@
 /* Color of site background */
 /* #03A9f4*/
 body {
-  background-color: #86BBD8;
+  background-color:#E0FBFC;
 }
 
 /* Color of top navigation bar */
@@ -40,9 +42,9 @@ a {
 }
 
 .footer {
-  background-color: #33658A !important;
   color: 'white';
   border-top: 8px solid #2F4858;
+  background-color:#effeff;
 }
 
 
