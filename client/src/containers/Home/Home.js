@@ -8,6 +8,7 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 // Importing icons/images
 import appointment from '../../assets/images/appointment.png';
+import ferrari from '../../assets/images/3-audi-png-car-image.png';
 import search from '../../assets/images/search.png';
 
 // Importing Navbar component.
@@ -22,6 +23,9 @@ const styles = {
   },
   heading: {
     fontSize: 35,
+  },
+  carimag: {
+    width: 300
   }
 };
 
@@ -46,7 +50,7 @@ class Home extends Component {
 
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
               <Typography align="center" className={classes.heading}>
-                Appointments
+                View Appointments
               </Typography>
               <Subhead align="center">
                 <Link
@@ -56,10 +60,6 @@ class Home extends Component {
                 </Link>
               </Subhead>
             </Grid>
-
-          
-
-            
 
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
               <Typography align="center" className={classes.heading}>
@@ -73,9 +73,23 @@ class Home extends Component {
                 </Link>
               </Subhead>
             </Grid>
+         
+
+            <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+              <Typography align="center" className={classes.heading}>
+                Add Vehicle
+              </Typography> 
+              <Subhead align="center">
+                <Link
+                  href="/addcar"
+                >
+                  <img src={ferrari} alt="line graph" className={classes.carimag}/>
+                </Link>
+              </Subhead>
+            </Grid>
           </Grid>
-        </div>,
-      </div>,
+        </div>
+      </div>
     ];
   }
 }
