@@ -190,7 +190,7 @@ handleCarYearChange = (event) => {
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Typography variant="display1" align="left">
-                    Cars
+                    My Vehicles
                   </Typography>
                 </Grid>
               </Grid>

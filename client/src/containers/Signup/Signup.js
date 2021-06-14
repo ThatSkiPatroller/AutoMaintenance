@@ -9,6 +9,7 @@ import SignupForm from './SignupForm';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom'
 
+
 const styles = {
   // Tell Material-UI what's the font-size on the html element is.
   root: {
@@ -17,6 +18,9 @@ const styles = {
   headline: {
     marginTop: 30,
   },
+  logo: {
+    fontFamily: 'Lobster, cursive'
+  }
 };
 
 class Signup extends Component {
@@ -39,7 +43,7 @@ class Signup extends Component {
   handleUsernameChange = (event) => {
     this.setState({
       username: event.target.value,
-      usernameMissingError: "", 
+      usernameMissingError: "",
     });
   }
 
@@ -55,7 +59,7 @@ class Signup extends Component {
     if (this.state.password.length > 0 && this.state.password.length < 8) {
       this.setState({
         passwordLengthError: "Password is weak. Password should be at least 8 characters."
-      });
+      }); 
     }
 
     // If password is 8 characters or greater, remove password length error from page.
@@ -146,8 +150,8 @@ class Signup extends Component {
       <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">
-            <Typography variant="display1">
-              Welcome to HealthTracker
+            <Typography variant="display1" className={classes.logo}>
+              Welcome to AutoWizard <i class="fas fa-magic"></i>
             </Typography>
           </Grid>
         </Grid>,
