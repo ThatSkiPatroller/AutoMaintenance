@@ -14,7 +14,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#33658A',
+    borderColor: 'gray',
   }),
   button: {
     marginTop: 20,
@@ -22,15 +22,13 @@ const styles = theme => ({
     paddingRight: 20,
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: '#33658A',
+    backgroundColor: '#760c0e',
     color: 'white',
   },
 });
 
-// Prescription List component on the My prescriptions page.
 class DealerList extends React.Component {
   render() {
-    console.log("the prescription list is here but not working");
     const { classes } = this.props;
     return (
         <Paper className={classes.root} elevation={4} id={this.props.id} key={this.props.key}>
@@ -58,6 +56,4 @@ class DealerList extends React.Component {
     );
   }
 }
-
-// Export PrescriptionList component with styling.
 export default withStyles(styles)(DealerList);

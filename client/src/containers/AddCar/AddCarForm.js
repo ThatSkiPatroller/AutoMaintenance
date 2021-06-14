@@ -23,19 +23,17 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#33658A',
+    borderColor: 'gray',
   },
   formControl: {
     minWidth: 120,
-    marginTop: 30,
   },
   button: {
     marginTop: 20,
     padding: 15,
-    backgroundColor: '#33658A',
+    backgroundColor: '#760c0e',
     color: 'white',
   },
   formError: {
@@ -63,9 +61,6 @@ class AddCarForm extends React.Component {
     return (
         <Card className={classes.root}>
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              Add a Car
-            </Typography>
             <form noValidate autoComplete="off" id="Car-form">
            
             <FormControl className={classes.formControl} fullWidth>

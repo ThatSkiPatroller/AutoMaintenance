@@ -119,6 +119,4 @@ class CarList extends React.Component {
     );
   }
 }
-
-// Export PrescriptionList component with styling.
 export default withStyles(styles)(CarList);

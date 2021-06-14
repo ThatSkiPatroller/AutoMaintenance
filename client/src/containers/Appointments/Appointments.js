@@ -22,7 +22,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#33658A',
+    borderColor: 'gray',
     display: 'block',
     overflowX: 'auto',
     maxWidth: '80%',
@@ -48,15 +48,26 @@ const styles = theme => ({
     position: 'relative',
     display: 'flex',
     width: '100%',
+    borderWidth: 10,
+    boxShadow: 'rgba(0, 0, 0, 0.15) 2px 5px 5px 5px',
   },
   content: {
     flexGrow: 1,
     backgroundColor: '#86BBD8',
+    backgroundColor: '#efefef',
     padding: theme.spacing.unit * 3,
+    backgroundColor: '#efefef',
   },
   heading: {
     marginTop: 40,
   },
+  box: {
+    padding: 30,
+   borderWidth: 10,
+    boxShadow: 'rgba(0, 0, 0, 0.15) 2px 5px 5px 5px',
+    color: 'hsl(206, 1, 28)',
+    marginTop: 30,
+  }
 });
 
 class Appointments extends Component {
@@ -66,8 +77,7 @@ class Appointments extends Component {
     appointmentDate: "",
     appointmentTime: "",
     appointments: [],
-    doctors: [],
-    clinics: [],
+   
     appointmentNameError: "",
     appointmentDoctorError: "",
     appointmentDateError: "",
@@ -78,7 +88,6 @@ class Appointments extends Component {
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
     this.loadAppointments();
-   
   }
 
   // Loads all appointments and saves them to this.state.appointments.
@@ -113,10 +122,6 @@ class Appointments extends Component {
     });
 
    };
-
-   
-   
-   
   handleAppointmentDetails = id => { 
       console.log("deee" + id )
   };
@@ -129,7 +134,7 @@ class Appointments extends Component {
       <div className={classes.appFrame}>
         <Sidebar />
         <main className={classes.content}>
-          <div style={{ padding: 70 }}>
+          <div className="box">
             <Grid container spacing={24}>
               <Grid item xs={12}>
                 <Typography variant="display1" align="left">

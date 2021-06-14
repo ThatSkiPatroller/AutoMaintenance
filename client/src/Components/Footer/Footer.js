@@ -12,11 +12,18 @@ const styles = {
   copyright: {
     marginTop: 10,
     backgroundColor: '#33658A',
+    backgroundColor: 'black',
     color: 'white',
   },
   footerContent: {
-    backgroundColor: '#33658A',
+    backgroundColor: 'black',
+    position: 'fixed',
+    left: 0,
+    bottom: 0,
+    backgroundColor: '#212529',
     color: 'white',
+    height: 40,
+    
   },
   button: {
     color: 'white',

@@ -31,7 +31,6 @@ const styles = theme => ({
   },
 });
 
-// Doctor info component on the Doctors and clinics page.
 class AppointmentInfo extends React.Component {
   render() {
     const { classes } = this.props;
@@ -45,7 +44,7 @@ class AppointmentInfo extends React.Component {
           </ListItem>
           <ListItem>
             <ListItemText >
-              <b>Address:</b> {this.props.doctorClinic}
+              <b>Address:</b> 
             </ListItemText>
           </ListItem>
           <ListItem>
@@ -55,22 +54,22 @@ class AppointmentInfo extends React.Component {
           </ListItem>
           <ListItem>
             <ListItemText >
-              <b>Date/Time:</b> {this.props.doctorPhone}
+              <b>Date/Time:</b> 
             </ListItemText>
           </ListItem>
           <ListItem>
             <ListItemText >
-              <b>Pick Up:</b> {this.props.doctorPhone}
+              <b>Pick Up:</b> 
             </ListItemText>
           </ListItem>
           <ListItem>
             <ListItemText >
-              <b>Drop Off :</b> {this.props.doctorPhone}
+              <b>Drop Off :</b> 
             </ListItemText>
           </ListItem>
 
           <ListItem>
-            <Button size="small" color="primary" variant="raised" className={classes.button} onClick={() => { this.props.deleteDoctor(this.props.id); }}>DELETE</Button>
+            <Button size="small" color="primary" variant="raised" >DELETE</Button>
           </ListItem>
         </List>
         <Divider className={classes.divider} />

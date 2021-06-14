@@ -17,7 +17,7 @@ const styles = {
   drawerPaper: {
     position: 'relative',
     width: drawerWidth,
-    backgroundColor: '#33658A',
+    backgroundColor: '#323537',
   },
   navItem: {
     marginTop: 8,

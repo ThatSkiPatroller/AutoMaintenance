@@ -18,15 +18,18 @@
 /* Color of site background */
 /* #03A9f4*/
 body {
-  background-color: #86BBD8;
+  background-color: rgb(208, 189, 189);
+
 }
 
 /* Color of top navigation bar */
 /*#007AC1*/
 .appBar {
-  background-color: #33658A !important;
+  background-color: rgb(118, 11, 11) !important;
+
   padding-bottom: 20px;
-  border-bottom: 8px solid #2F4858;
+  border-bottom: 0px solid gray;
+
 }
 
 /* Color of headers */
@@ -40,7 +43,7 @@ a {
 }
 
 .footer {
-  background-color: #33658A !important;
+  background-color: #391a1a !important;
   color: 'white';
   border-top: 8px solid #2F4858;
 }
