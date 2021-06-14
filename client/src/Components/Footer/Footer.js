@@ -33,7 +33,7 @@ class Footer extends React.Component {
       <Card className="footer">
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2" className={classes.footerContent}>
-            AutoMaintainance
+            AutoWizard <i class="fas fa-magic"></i>
           </Typography>
           <Typography component="p" className={classes.footerContent}>
           </Typography>
