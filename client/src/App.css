@@ -25,10 +25,10 @@ body {
 /* Color of top navigation bar */
 /*#007AC1*/
 .appBar {
-  background-color: #131920 !important;
+  background-color: rgb(118, 11, 11) !important;
 
   padding-bottom: 20px;
-  border-bottom: 8px solid #2F4858;
+  border-bottom: 0px solid gray;
 
 }
 

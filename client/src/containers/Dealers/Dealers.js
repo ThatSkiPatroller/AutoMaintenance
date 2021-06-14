@@ -23,9 +23,7 @@ const styles = theme => ({
     },
     content: {
         flexGrow: 1,
-        backgroundColor: '#86BBD8',
-        backgroundColor: 'rgb(208, 189, 189)',
-
+        backgroundColor: '#efefef',
         padding: theme.spacing.unit * 3,
     },
 });

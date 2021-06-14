@@ -19,8 +19,7 @@ const styles = theme => ({
     },
     content: {
         flexGrow: 1,
-        backgroundColor: '#86BBD8',
-        backgroundColor: 'rgb(208, 189, 189)',
+        backgroundColor: '#efefef',
 
         padding: theme.spacing.unit * 3,
     },
@@ -192,7 +191,7 @@ handleCarYearChange = (event) => {
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Typography variant="display1" align="left">
-                    My Vehicles
+                    Add Car
                   </Typography>
                 </Grid>
               </Grid>

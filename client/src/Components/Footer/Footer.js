@@ -17,7 +17,13 @@ const styles = {
   },
   footerContent: {
     backgroundColor: 'black',
+    position: 'fixed',
+    left: 0,
+    bottom: 0,
+     backgroundColor: '#212529',
     color: 'white',
+    height: 40,
+ 
   },
   button: {
     color: 'white',
