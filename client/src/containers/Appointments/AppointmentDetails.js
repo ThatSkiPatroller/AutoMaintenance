@@ -30,14 +30,7 @@ const styles = theme => ({
     backgroundColor: '#86BBD8',
     padding: theme.spacing.unit * 3,
   },
-  doctorClinicList: {
-    borderStyle: 'solid',
-    borderWidth: 4,
-    borderColor: '#33658A',
-  },
-  clinicSection: {
-    marginTop: 45,
-  },
+  
 });
 
 class AppointmentDetails extends Component {
@@ -52,7 +45,6 @@ class AppointmentDetails extends Component {
     appointment: [],
   };
 
-  // When the component mounts, load all doctors and clinics and save them to this.state.doctors and this.state.clinics.
   componentDidMount() {
     var id = this.props.match.params.id
     console.log(id)
@@ -116,7 +108,7 @@ class AppointmentDetails extends Component {
               <Grid container spacing={16}>
                
                 <Grid item xs={12} sm={12} md={6}>
-                  <Paper elevation={4} className={classes.doctorClinicList}>
+                  <Paper elevation={4}>
                     <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}} >
                       Appointment Details
                     </Typography>
@@ -125,11 +117,7 @@ class AppointmentDetails extends Component {
                         <AppointmentInfo 
                           id={appt._id}
                           key={appt._id}
-                          doctorFirstName={appt.firstname}
-                          doctorLastName={appt.lastname}
-                          doctorClinic={appt.clinic}
-                          doctorPhone={appt.phone}
-                          deleteDoctor = { this.deleteDoctor } />
+                          />
                       );
                     })}
                  
@@ -138,7 +126,7 @@ class AppointmentDetails extends Component {
                 </Grid>
               </Grid>
 
-              <Grid container spacing={16} className={classes.clinicSection}>
+              <Grid container spacing={16}>
                 
               
               </Grid>

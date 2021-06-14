@@ -18,14 +18,14 @@ module.exports = {
     db.Car
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
-      .catch(err => console.log('the findbyid Prescription is not working in Prescriptionscontroller.js error: ' + err));
+      .catch(err => console.log('the findbyid  is not working error: ' + err));
     //res.status(422).json(err));
   },
   update: function (req, res) {
     db.Car
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => console.log('the update Prescription is not working in Prescriptionscontroller.js error: ' + err));
+      .catch(err => console.log('the update is not working in .js error: ' + err));
     //res.status(422).json(err));
   },
   remove: function (req, res) {
@@ -33,6 +33,6 @@ module.exports = {
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
-      .catch(err => console.log('the remove Prescription is not working in Prescriptionscontroller.js error: ' + err));
+      .catch(err => console.log('the remove is not working.js error: ' + err));
   },
 };

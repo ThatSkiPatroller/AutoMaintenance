@@ -24,6 +24,8 @@ const styles = theme => ({
     content: {
         flexGrow: 1,
         backgroundColor: '#86BBD8',
+        backgroundColor: 'rgb(208, 189, 189)',
+
         padding: theme.spacing.unit * 3,
     },
 });
@@ -34,13 +36,7 @@ class Dealer extends Component {
   };
     componentDidMount() {
     }
-
     
-
-    
-
-    // Keep track of what user types for Car name so that input can be grabbed later.
-    // If form validation error is showing, remove error from page when user starts typing.
     handleCarNameChange = (event) => {
         this.setState({ 
           carName: event.target.value,
@@ -78,11 +74,7 @@ handleCarYearChange = (event) => {
       formSuccessMessage: "",
     });
   }
-   
-
-    // Keep track of what user types into Car date input field so that input can be grabbed later.
-    // If form validation error is showing, remove error from page when user starts typing.
-    handleCarDateChange = (event) => {
+      handleCarDateChange = (event) => {
         this.setState({ 
           CarDate: event.target.value,
           CarDateError: "",
@@ -153,7 +145,7 @@ handleCarYearChange = (event) => {
         <div className={classes.appFrame}>
           <Sidebar />
           <main className={classes.content}>
-            <div style={{ padding: 70 }}>
+            <div>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Typography variant="display1" align="left">
@@ -164,7 +156,7 @@ handleCarYearChange = (event) => {
 
               <div className="main-content-section">
                 <Grid container>
-                  <Grid item xs={12} sm={12} md={6}>
+                  <Grid item xs={12} sm={12} md={12}>
                     {dealerData.map(dealer => {
                       return (
                         <DealerList

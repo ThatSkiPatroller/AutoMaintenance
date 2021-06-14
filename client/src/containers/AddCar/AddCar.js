@@ -20,6 +20,8 @@ const styles = theme => ({
     content: {
         flexGrow: 1,
         backgroundColor: '#86BBD8',
+        backgroundColor: 'rgb(208, 189, 189)',
+
         padding: theme.spacing.unit * 3,
     },
 });
@@ -186,7 +188,7 @@ handleCarYearChange = (event) => {
         <div className={classes.appFrame}>
           <Sidebar />
           <main className={classes.content}>
-            <div style={{ padding: 70 }}>
+            <div>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Typography variant="display1" align="left">

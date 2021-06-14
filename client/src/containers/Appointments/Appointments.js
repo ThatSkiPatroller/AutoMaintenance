@@ -52,6 +52,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     backgroundColor: '#86BBD8',
+    backgroundColor: 'rgb(208, 189, 189)',
     padding: theme.spacing.unit * 3,
   },
   heading: {
@@ -66,8 +67,7 @@ class Appointments extends Component {
     appointmentDate: "",
     appointmentTime: "",
     appointments: [],
-    doctors: [],
-    clinics: [],
+   
     appointmentNameError: "",
     appointmentDoctorError: "",
     appointmentDateError: "",
@@ -78,7 +78,6 @@ class Appointments extends Component {
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
     this.loadAppointments();
-   
   }
 
   // Loads all appointments and saves them to this.state.appointments.
@@ -113,10 +112,6 @@ class Appointments extends Component {
     });
 
    };
-
-   
-   
-   
   handleAppointmentDetails = id => { 
       console.log("deee" + id )
   };
@@ -129,7 +124,7 @@ class Appointments extends Component {
       <div className={classes.appFrame}>
         <Sidebar />
         <main className={classes.content}>
-          <div style={{ padding: 70 }}>
+          <div>
             <Grid container spacing={24}>
               <Grid item xs={12}>
                 <Typography variant="display1" align="left">

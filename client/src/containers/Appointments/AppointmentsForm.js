@@ -60,7 +60,7 @@ class AppointmentsForm extends React.Component {
   }
 
   render() {
-    const { classes, doctors, clinics } = this.props;
+    const { classes, doctors } = this.props;
 
     return (
       <div>

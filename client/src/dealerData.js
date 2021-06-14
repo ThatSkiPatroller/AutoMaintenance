@@ -3,11 +3,11 @@ let dealerData = [
         "id": 1,
         "username": "dealer1@gmail.com",
         "password": "dealer",
-        "name": "Automobile dealer 1",
+        "name": "Citi Smog & Auto Service",
         "image": "https://di-uploads-pod5.dealerinspire.com/autocitysd/uploads/2017/12/regular-maintenance-for-your-car-1024x576.jpg",
         "phoneNo": "123-456-7890",
         "pickUp": "YES",
-        "address": "addresss 1",
+        "address": "Redondo Beach, CA",
         "dropOff": "YES",
         "overnightAvailable": "YES"
     },
@@ -15,24 +15,24 @@ let dealerData = [
       "id": 2,
       "username": "dealer1@gmail.com",
       "password": "dealer",
-      "name": "Automobile dealer 2",
+      "name": "Keith's Automotive Service Center",
       "image": "https://di-uploads-pod5.dealerinspire.com/autocitysd/uploads/2017/12/regular-maintenance-for-your-car-1024x576.jpg",
-      "phoneNo": "123-456-7890",
+      "phoneNo": "789-456-1234",
       "pickUp": "YES",
       "dropOff": "YES",
-      "address": "addresss 1",
+      "address": "Torrance, CA",
       "overnightAvailable": "YES"
   },
   {
     "id": 3,
     "username": "dealer1@gmail.com",
     "password": "dealer",
-    "name": "Automobile dealer 3",
+    "name": "M G M Auto Repair & Body Shop Inc",
     "image": "https://di-uploads-pod5.dealerinspire.com/autocitysd/uploads/2017/12/regular-maintenance-for-your-car-1024x576.jpg",
     "phoneNo": "123-456-7890",
     "pickUp": "YES",
     "dropOff": "YES",
-    "address": "addresss 1",
+    "address": "345 lincoln blvd, redeondo Beach, CA",
     "overnightAvailable": "YES"
   },
   {
@@ -51,12 +51,12 @@ let dealerData = [
     "id": 5,
     "username": "dealer1@gmail.com",
     "password": "dealer",
-    "name": "Automobile dealer 5",
+    "name": "Honda Service Department",
     "image": "https://di-uploads-pod5.dealerinspire.com/autocitysd/uploads/2017/12/regular-maintenance-for-your-car-1024x576.jpg",
     "phoneNo": "123-456-7890",
     "pickUp": "YES",
     "dropOff": "YES",
-    "address": "addresss 1",
+    "address": "Los Angeles, CA",
   
     "overnightAvailable": "YES"
   },
@@ -64,25 +64,24 @@ let dealerData = [
     "id": 6,
     "username": "dealer1@gmail.com",
     "password": "dealer",
-    "name": "Automobile dealer 6",
+    "name": "Redondo Foreign Auto Service",
     "image": "https://di-uploads-pod5.dealerinspire.com/autocitysd/uploads/2017/12/regular-maintenance-for-your-car-1024x576.jpg",
     "phoneNo": "123-456-7890",
     "pickUp": "YES",
     "dropOff": "YES",
-    "address": "addresss 1",
+    "address": "El Segundo, CA",
     "overnightAvailable": "YES"
   },
   {
     "id": 7,
     "username": "dealer1@gmail.com",
     "password": "dealer",
-    "name": "Automobile dealer 7",
+    "name": "Walt's Auto Service",
     "image": "https://di-uploads-pod5.dealerinspire.com/autocitysd/uploads/2017/12/regular-maintenance-for-your-car-1024x576.jpg",
     "phoneNo": "123-456-7890",
     "pickUp": "YES",
     "dropOff": "YES",
-    "address": "addresss 1",
-  
+    "address": "Torrance, CA",
     "overnightAvailable": "YES"
   }]
     
