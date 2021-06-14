@@ -20,10 +20,10 @@ const styles = {
     position: 'fixed',
     left: 0,
     bottom: 0,
-     backgroundColor: '#212529',
+    backgroundColor: '#212529',
     color: 'white',
     height: 40,
- 
+    
   },
   button: {
     color: 'white',
