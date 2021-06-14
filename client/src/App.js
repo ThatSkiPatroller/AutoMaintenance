@@ -17,6 +17,7 @@ import NoMatch from './containers/NoMatch';
 import Dealers from './containers/Dealers';
 import NewAppointment from './containers/NewAppointments'
 import AddCar from './containers/AddCar'
+import DealerSignUp from './containers/DealerPage/SignUp'
 
 // App theme customization.
 const theme = createMuiTheme({
@@ -52,6 +53,8 @@ class App extends Component {
               <Route exact path="/dealers" component={Dealers} />
               <Route exact path="/newappointment/:id" component={NewAppointment} />
               <Route exact path="/addcar" component={AddCar} />
+              <Route exact path="/dealer-signup" component={DealerSignUp} />
+
               <Route component={NoMatch} />
             </Switch>
           </div>

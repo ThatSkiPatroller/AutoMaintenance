@@ -11,6 +11,7 @@ import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 import dealerData from '../../dealerData';
+import dealerAPI from '../../utils/dealerAPI';
 
 // Style/Theme
 const styles = theme => ({
@@ -33,9 +34,19 @@ class Dealer extends Component {
    dealers: []
   };
     componentDidMount() {
+      this.loadDealer()
     }
 
-    
+    loadDealer = () => {
+      dealerAPI.getdealers()
+          .then(res =>
+            this.setState({
+              dealers: res.data
+            }))
+          .catch(err => console.log('loading dealers is not working: ' + err));
+
+          console.log(this.state.dealers)
+  };
 
     
 
@@ -165,12 +176,12 @@ handleCarYearChange = (event) => {
               <div className="main-content-section">
                 <Grid container>
                   <Grid item xs={12} sm={12} md={6}>
-                    {dealerData.map(dealer => {
+                    {this.state.dealers.map(dealer => {
                       return (
                         <DealerList
                           id={dealer.id}
                           key={dealer.id}
-                          dealerName={dealer.name}
+                          dealerName={dealer.username}
                           dealerAddress={dealer.address}
                           dealerPhoneNo={dealer.phoneNo}
                           dealerpickup={dealer.pickUp}

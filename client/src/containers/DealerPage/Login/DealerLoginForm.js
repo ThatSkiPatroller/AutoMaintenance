@@ -48,7 +48,7 @@ const styles = theme => ({
   }
 });
 
-class LoginForm extends React.Component {
+class DealerLoginForm extends React.Component {
   // State to toggle password visibility.
   state = {
     password: '',
@@ -114,22 +114,23 @@ class LoginForm extends React.Component {
                 <Typography className={classes.formError} component="p">{this.props.passwordMissingError}</Typography>
               </FormControl>
 
-              <Button size="large" className={classes.button} onClick={this.handleClickShowPassword} onMouseDown={this.handleMouseDownPassword}variant="raised" color="primary">
-              {this.state.showPassword ? "HIDE PASSWORD" : "SHOW PASSWORD"}
-              </Button>
+              
               <br />
 
+              
               <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit} variant="raised" color="primary">
               LOG IN
               </Button>
-              <Button size="large" className={classes.signUpButton} component={Link} to="/signup" variant="raised" color="primary">
+              <Button size="large" className={classes.signUpButton} component={Link} to="/dealer-signup" variant="raised" color="primary">
               SIGN UP
               </Button>
+              <br/>
               <FormControl className={classes.formControl} fullWidth>
-              <Button size="large" className={classes.dealerButton} component={Link} to="/dealer-signup" variant="raised" color="secondary">
-               ARE YOU DEALER? WANT TO ADD SERVICE
+              <Button size="large" className={classes.dealerButton} component={Link} to="/" variant="raised" color="secondary">
+               ARE YOU USER? CLICK HERE
               </Button>
               </FormControl>
+             
             </form>
           </CardContent>
         </Card>
@@ -139,4 +140,4 @@ class LoginForm extends React.Component {
 }
 
 // Export the LoginForm component with styling.
-export default withStyles(styles)(LoginForm);
+export default withStyles(styles)(DealerLoginForm);

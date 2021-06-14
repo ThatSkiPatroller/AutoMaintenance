@@ -2,7 +2,7 @@
     "name": "auto",
     "version": "1.0.0",
     "private": true,
-    "proxy": "http://localhost:3001/",
+    "proxy": "http://localhost:3000/",
     "dependencies": {
         "@material-ui/icons": "^1.0.0",
         "axios": "^0.18.0",
