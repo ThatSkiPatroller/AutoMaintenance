@@ -24,7 +24,6 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#2F4858',
     borderColor: '#e53935',
   },
   formControl: {
@@ -34,7 +33,7 @@ const styles = theme => ({
   button: {
     marginTop: 40,
     padding: 15,
-    backgroundColor: '#33658A',
+    backgroundColor: '#e53935',
     color: 'white',
     backgroundColor: '#e53935',
     color: 'white',
@@ -42,7 +41,7 @@ const styles = theme => ({
   signUpButton: {
     marginTop: 40,
     padding: 15,
-    backgroundColor: '#33658A',
+    backgroundColor: '#e53935',
     color: 'white',
     float: 'right',
     backgroundColor: '#e53935',
@@ -50,6 +49,11 @@ const styles = theme => ({
   },
   formError: {
     color: 'red',
+  },
+  log: {
+    fontFamily: 'Bebas Neue',
+    color: '#303f9f',
+    fontSize: '35px'
   }
 });
 
@@ -77,11 +81,11 @@ class LoginForm extends React.Component {
       <div className="animated bounceInLeft">
         <Card className={classes.root}>
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2" align="center">
+            <Typography gutterBottom variant="headline" component="h2" align="center" className={classes.log}>
             LOGIN
             </Typography>
-            <Typography gutterBottom component="p" align="center">
-            Enter your credentials to LOG IN or click SIGN UP to create an account.
+            <Typography gutterBottom component="p" align="center" className={classes.log}>
+            Enter your credentials to LOG IN or <br></br> click SIGN UP to create an account.
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
