@@ -11,6 +11,7 @@ import Sidebar from '../../Components/Sidebar';
 import NavBar from '../../Components/AppBar';
 import dealerData from '../../dealerData';
 var ls = require('local-storage');
+import Container from '@material-ui/core/Container';
 
 //Style
 const styles = theme => ({
@@ -249,12 +250,13 @@ class NewAppointment extends Component {
       <NavBar />,
       <div className={classes.appFrame}>
         <Sidebar />
+        <Container>
         <main className={classes.content}>
-          <div style={{ padding: 70 }}>
+          <div>
             <Grid container spacing={24}>
               <Grid item xs={12}>
                 <Typography variant="display1" align="left">
-                  Appointments
+                  Add an Appointment
                 </Typography>
               </Grid>
             </Grid>
@@ -285,6 +287,7 @@ class NewAppointment extends Component {
             </div>
           </div>
         </main>
+        </Container>
       </div>
     ];
   }
