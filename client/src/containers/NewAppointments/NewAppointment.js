@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import AppointmentForm from './NewAppointmentForm';
 import AppointmentAPI from '../../utils/AppointmentAPI';
 import { withStyles } from 'material-ui/styles';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 // Import Sidebar component.
@@ -49,7 +47,7 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    backgroundColor: '#86BBD8',
+    backgroundColor: '#efefef',
     padding: theme.spacing.unit * 3,
     color: 'white',
   },
@@ -197,7 +195,7 @@ class NewAppointment extends Component {
       }
       var userId = ls.get('userId');
        console.log(userId)
-       
+
       var jsonObj =  {
         appointmentName: this.state.appointmentName,
         date: this.state.appointmentDate,

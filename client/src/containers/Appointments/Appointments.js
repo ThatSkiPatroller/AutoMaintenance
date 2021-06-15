@@ -54,11 +54,8 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    backgroundColor: '#86BBD8',
-    backgroundColor: '#efefef',
     padding: theme.spacing.unit * 3,
     backgroundColor: '#efefef',
-    
   },
   heading: {
     marginTop: 40,
@@ -175,7 +172,7 @@ class Appointments extends Component {
                                 name={appointment.appointmentName}
                                 date={appointment.date}
                                 time={appointment.time}
-                                isPickup = {appointment.isPickUp}
+                                isPickUp = {appointment.isPickUp}
                                 isDropOff = {appointment.isDropOff}
                                 deleteAppointment={this.deleteAppointment}
                                 handleAppointmentDetails = {this.handleAppointmentDetails}

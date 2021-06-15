@@ -22,9 +22,10 @@ const styles = theme => ({
         width: '100%',
     },
     content: {
-        flexGrow: 1,
+       // flexGrow: 1,
         backgroundColor: '#efefef',
         padding: theme.spacing.unit * 3,
+        overflowY: 'scroll',
     },
     head: {
       fontFamily: 'Bebas Neue',
@@ -146,6 +147,7 @@ handleCarYearChange = (event) => {
         <NavBar />,
         <div className={classes.appFrame}>
           <Sidebar />
+
           <main className={classes.content}>
             <div>
               <Grid container spacing={24}>
