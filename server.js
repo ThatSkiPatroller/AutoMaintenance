@@ -24,7 +24,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// // Add routes, both API and view
 
 // Route for retrieving all Users from the db
 app.get('/user', function (req, res) {
