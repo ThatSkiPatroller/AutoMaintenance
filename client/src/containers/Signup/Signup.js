@@ -19,7 +19,8 @@ const styles = {
     marginTop: 30,
   },
   logo: {
-    fontFamily: 'Lobster, cursive'
+    fontFamily: 'Bebas Neue',
+    color: '#303f9f',
   }
 };
 
@@ -151,7 +152,7 @@ class Signup extends Component {
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">
             <Typography variant="display1" className={classes.logo}>
-              Welcome to AutoWizard <i class="fas fa-magic"></i>
+              Welcome to AutoWizard 
             </Typography>
           </Grid>
         </Grid>,
