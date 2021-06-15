@@ -17,11 +17,14 @@ const styles = {
   drawerPaper: {
     position: 'relative',
     width: drawerWidth,
-    backgroundColor: '#323537',
+    backgroundColor: '#b71c1c',
   },
   navItem: {
     marginTop: 8,
   },
+  icon: {
+    color: 'white'
+  }
 };
 
 class Sidebar extends React.Component {
@@ -43,7 +46,7 @@ class Sidebar extends React.Component {
                   title="Home"
                   placement="top"
                 >
-                  <IconButton> <i className="fas fa-home" /></IconButton>
+                  <IconButton className={classes.icon}> <i className="fas fa-home" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
@@ -55,7 +58,7 @@ class Sidebar extends React.Component {
                   title="Appointments"
                   placement="top"
                 >
-                  <IconButton><i className="fas fa-calendar-alt" /></IconButton>
+                  <IconButton className={classes.icon}><i className="fas fa-calendar-alt" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
@@ -66,7 +69,7 @@ class Sidebar extends React.Component {
                   title="Add car"
                   placement="top"
                 >
-                  <IconButton><i className="fas fa-taxi" /></IconButton >
+                  <IconButton className={classes.icon}><i className="fas fa-taxi" /></IconButton >
                 </Tooltip>
               </ListItemText>
             </ListItem>
@@ -79,7 +82,7 @@ class Sidebar extends React.Component {
                   title="Dealers"
                   placement="top"
                 >
-                  <IconButton><i className="fas fa-search"/></IconButton >
+                  <IconButton className={classes.icon}><i className="fas fa-search"/></IconButton >
                 </Tooltip>
               </ListItemText>
             </ListItem>

@@ -15,6 +15,7 @@ import HamburgerMenu from './HamburgerMenu';
 import { Link } from 'react-router-dom';
 // Import axios
 import axios from 'axios';
+import Logo from '../../assets/images/auto_wiz_logo.png';
 import './appbar.css';
 
 // material-ui-next styling
@@ -35,6 +36,9 @@ const styles = {
     color: 'white',
     marginTop: 20
   },
+  logo: {
+    marginTop: 10
+  }
 };
 
 function NavBar(props) {
@@ -52,7 +56,7 @@ function NavBar(props) {
             </svg>
             <span class="ag-loader-car_text cabrio-text">
               <Typography variant="title" color="inherit" className={classes.flex} component={Link} to="/home">
-                AutoWizard <i class="fas fa-magic"></i>
+                <img src={Logo} alt='logo' className={classes.logo}/>
               </Typography>
             </span>
             

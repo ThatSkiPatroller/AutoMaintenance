@@ -22,7 +22,12 @@ const styles = theme => ({
         backgroundColor: '#efefef',
 
         padding: theme.spacing.unit * 3,
+        
     },
+    title: {
+      fontFamily: 'Bebas Neue',
+      color: '#303f9f',
+    }
 });
 
 class AddCar extends Component {
@@ -190,8 +195,8 @@ handleCarYearChange = (event) => {
             <div>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
-                  <Typography variant="display1" align="left">
-                    Add Car
+                  <Typography variant="display2" align="left" className={classes.title}>
+                    My Vehicles
                   </Typography>
                 </Grid>
               </Grid>

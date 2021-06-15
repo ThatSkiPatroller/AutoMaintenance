@@ -26,6 +26,10 @@ const styles = theme => ({
         backgroundColor: '#efefef',
         padding: theme.spacing.unit * 3,
     },
+    head: {
+      fontFamily: 'Bebas Neue',
+      color: '#303f9f',
+    }
 });
 
 class Dealer extends Component {
@@ -146,7 +150,7 @@ handleCarYearChange = (event) => {
             <div>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
-                  <Typography variant="display1" align="left">
+                  <Typography variant="display2" className={classes.head} align="left">
                     Dealers
                   </Typography>
                 </Grid>
