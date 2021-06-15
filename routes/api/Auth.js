@@ -12,6 +12,7 @@ module.exports = function(passport, User){
       passport.authenticate('local'),
       (req, res) => {
         console.log(req.user)
+        localStorage.setItem('userId', req.user._id);
         res.json({message: "The user is logged in", userId: req.user._id})
       } 
     );

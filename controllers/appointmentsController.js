@@ -3,8 +3,11 @@ const db = require('../models');
 // Defining methods for the appointmentsController
 module.exports = {
   findAll: function(req, res) {
-      db.Appointment
-          .find(req.query)
+    var userId = storage.getItem('userId');
+
+    db.Appointment
+          .find({"_id": userId})
+         // .find(req.query)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
   },
