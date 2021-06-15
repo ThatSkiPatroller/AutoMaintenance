@@ -22,7 +22,7 @@ const styles = theme => ({
         width: '100%',
     },
     content: {
-       // flexGrow: 1,
+        flexGrow: 1,
         backgroundColor: '#efefef',
         padding: theme.spacing.unit * 3,
         overflowY: 'scroll',
