@@ -1,5 +1,6 @@
 const router = require("express").Router();
 // const passport = require('passport');
+var ls = require('local-storage');
 
 
 module.exports = function(passport, User){
@@ -12,7 +13,8 @@ module.exports = function(passport, User){
       passport.authenticate('local'),
       (req, res) => {
         console.log(req.user)
-        localStorage.setItem('userId', req.user._id);
+        ls.set('userId', req.user._id);
+        //localStorage.setItem('userId', req.user._id);
         res.json({message: "The user is logged in", userId: req.user._id})
       } 
     );
