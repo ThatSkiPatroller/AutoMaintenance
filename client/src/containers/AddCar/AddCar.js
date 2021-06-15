@@ -7,6 +7,7 @@ import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import Sidebar from '../../Components/Sidebar';
 import CarAPI from '../../utils/CarAPI';
+var ls = require('local-storage');
 
 // Style/Theme
 const styles = theme => ({
@@ -165,12 +166,15 @@ handleCarYearChange = (event) => {
         }
 
         else {
+          var userId = ls.get('userId');
+
           CarAPI.saveCar({
               carName: this.state.carName,
               carModel: this.state.carModel,
               carMake: this.state.carMake,
               carYear: this.state.carYear,
               carMileage: this.state.carMileage,
+              userId: userId,
               lastMaintainanceDate: this.state.lastMaintainanceDate,
           })
               .then(res => this.loadCars())

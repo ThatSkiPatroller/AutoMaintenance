@@ -5,8 +5,10 @@ var ls = require('local-storage');
 module.exports = {
   findAll: function(req, res) {
     var userId = ls.get('userId');
+    console.log(userId)
+
     db.Appointment
-          .find({"_id": userId})
+          .find({"userId": userId})
          // .find(req.query)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
