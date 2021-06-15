@@ -1,10 +1,15 @@
 const db = require('../models');
+var ls = require('local-storage');
 
 // Defining methods for the appointmentsController
 module.exports = {
   findAll: function(req, res) {
-      db.Appointment
-          .find(req.query)
+    var userId = ls.get('userId');
+    console.log(userId)
+
+    db.Appointment
+          .find({"userId": userId})
+         // .find(req.query)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
   },

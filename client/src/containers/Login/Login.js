@@ -89,8 +89,9 @@ class Login extends Component {
       <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">
-            <Typography variant="display2" className={classes.head}>
-              Welcome to Auto Wizard
+            <Typography variant="display1">
+            Welcome to AutoWizard <i class="fas fa-magic"></i>
+           
             </Typography>
           </Grid>
         </Grid>,

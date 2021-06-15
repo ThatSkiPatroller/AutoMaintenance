@@ -11,6 +11,7 @@ import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 import dealerData from '../../dealerData';
+import Container from '@material-ui/core/Container';
 
 // Style/Theme
 const styles = theme => ({
@@ -25,6 +26,7 @@ const styles = theme => ({
         flexGrow: 1,
         backgroundColor: '#efefef',
         padding: theme.spacing.unit * 3,
+        overflowY: 'scroll',
     },
     head: {
       fontFamily: 'Bebas Neue',
@@ -146,6 +148,9 @@ handleCarYearChange = (event) => {
         <NavBar />,
         <div className={classes.appFrame}>
           <Sidebar />
+          <Container>
+
+         
           <main className={classes.content}>
             <div>
               <Grid container spacing={24}>
@@ -178,6 +183,8 @@ handleCarYearChange = (event) => {
               </div>
             </div>
           </main>
+          </Container>
+          
        </div >
       ];
     }

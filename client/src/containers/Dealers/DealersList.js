@@ -42,7 +42,7 @@ class DealerList extends React.Component {
             <b>Phone No:</b> {this.props.dealerPhoneNo}
           </Typography>
           <Typography component="p">
-            <b>pickUp Available:</b> {this.props.dealerpickup}
+            <b>PickUp Available:</b> {this.props.dealerpickup}
           </Typography>
           <Typography component="p">
             <b>DropOff Available:</b> {this.props.dealerdropOff}

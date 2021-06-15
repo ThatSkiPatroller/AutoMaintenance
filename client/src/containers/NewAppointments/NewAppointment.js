@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import AppointmentForm from './NewAppointmentForm';
 import AppointmentAPI from '../../utils/AppointmentAPI';
 import { withStyles } from 'material-ui/styles';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 // Import Sidebar component.
@@ -12,6 +10,8 @@ import Sidebar from '../../Components/Sidebar';
 // Importing Navbar component.
 import NavBar from '../../Components/AppBar';
 import dealerData from '../../dealerData';
+var ls = require('local-storage');
+import Container from '@material-ui/core/Container';
 
 //Style
 const styles = theme => ({
@@ -48,8 +48,9 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    backgroundColor: '#86BBD8',
+    backgroundColor: '#efefef',
     padding: theme.spacing.unit * 3,
+    color: 'white',
   },
   heading: {
     marginTop: 40,
@@ -95,11 +96,6 @@ class NewAppointment extends Component {
       .then(res => this.loadAppointments())
       .catch(err => console.log(err));
   };
-
-  
-
- 
-
   // Keep track of what user enters for appointment name so that input can be grabbed later.
   // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentNameChange = (event) => {
@@ -118,17 +114,8 @@ class NewAppointment extends Component {
     });
   }
 
-  // Keep track of what user selects for doctor so that input can be grabbed later.
-  // If form validation error is showing, remove error from page when user starts typing.
-  handleAppointmentDoctorChange = (event) => {
-    this.setState({ 
-      appointmentDoctor: event.target.value,
-      appointmentDoctorError: "",
-      formSuccessMessage: "",
-    });
-  }
-
-  // Keep track of what user types into appointment date input field so that input can be grabbed later.
+ 
+ // Keep track of what user types into appointment date input field so that input can be grabbed later.
   // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentDateChange = (event) => {
     this.setState({ 
@@ -207,6 +194,9 @@ class NewAppointment extends Component {
       if (this.state.appointmentTime === "Overnight Service") {
         availOvernight = true
       }
+      var userId = ls.get('userId');
+       console.log(userId)
+
       var jsonObj =  {
         appointmentName: this.state.appointmentName,
         date: this.state.appointmentDate,
@@ -218,7 +208,8 @@ class NewAppointment extends Component {
         isPickUp: this.state.isPickUp,
         isDropOff: this.state.isDropOff,
         isOvernight: availOvernight,
-        description: this.state.description
+        description: this.state.description,
+        userId: userId,
       }
 
       AppointmentAPI.saveAppointment(jsonObj)
@@ -259,12 +250,13 @@ class NewAppointment extends Component {
       <NavBar />,
       <div className={classes.appFrame}>
         <Sidebar />
+        <Container>
         <main className={classes.content}>
-          <div style={{ padding: 70 }}>
+          <div>
             <Grid container spacing={24}>
               <Grid item xs={12}>
                 <Typography variant="display1" align="left">
-                  Appointments
+                  Add an Appointment
                 </Typography>
               </Grid>
             </Grid>
@@ -295,6 +287,7 @@ class NewAppointment extends Component {
             </div>
           </div>
         </main>
+        </Container>
       </div>
     ];
   }

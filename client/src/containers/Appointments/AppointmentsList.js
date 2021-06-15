@@ -45,14 +45,9 @@ class AppointmentsList extends React.Component {
         <TableCell>{this.props.name}</TableCell>
         <TableCell numeric>{moment(this.props.date).format('MMM DD YYYY')}</TableCell>
         <TableCell numeric>{this.props.time}</TableCell>
-        <TableCell>{this.props.isPickup}</TableCell>
+        <TableCell>{this.props.isPickUp}</TableCell>
         <TableCell>{this.props.isDropOff}</TableCell>
         <TableCell>
-          <span>
-          <Button size="small" href={`/appointmentdetails/${this.props.id}`} href={`/appointmentdetails/${this.props.id}`}
->  
-          <i class="fas fa-angle-right" /></Button>
-          </span>
           <Button size="small" onClick={() => { this.props.deleteAppointment(this.props.id); }}>
             <i class="far fa-trash-alt" />
           </Button>

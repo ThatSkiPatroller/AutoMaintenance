@@ -37,6 +37,7 @@ const styles = {
     marginTop: 20,
     padding: 15,
     backgroundColor: '#33658A',
+    backgroundColor: '#e53935',
     color: 'white',
   },
   formError: {
@@ -94,9 +95,6 @@ class NewAppointmentForm extends React.Component {
       <div>
         <Card className={classes.root}>
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-            Add an appointment
-            </Typography>
             <form noValidate autoComplete="off" id="appointment-form">
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="appointment-name">

@@ -1,10 +1,15 @@
 const db = require('../models');
+var ls = require('local-storage');
 
 // Defining methods for the symptomsController
 module.exports = {
   findAll: function (req, res) {
+    var userId = ls.get('userId');
+    console.log(userId)
+
       db.Car
-          .find(req.query)
+          .find({"userId": userId})
+         // .find(req.query)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
   },
