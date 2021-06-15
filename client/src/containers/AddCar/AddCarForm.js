@@ -25,7 +25,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: 'gray',
+    borderColor: '#e53935',
   },
   formControl: {
     minWidth: 120,
@@ -33,7 +33,7 @@ const styles = theme => ({
   button: {
     marginTop: 20,
     padding: 15,
-    backgroundColor: '#760c0e',
+    backgroundColor: '#e53935',
     color: 'white',
   },
   formError: {

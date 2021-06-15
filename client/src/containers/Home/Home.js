@@ -23,9 +23,15 @@ const styles = {
   },
   heading: {
     fontSize: 35,
+    fontFamily: 'Play',
+    color: '#303f9f',
   },
   carimag: {
     width: 300
+  },
+  what: {
+    fontFamily: 'Play',
+    color: '#303f9f',
   }
 };
 
@@ -37,7 +43,7 @@ class Home extends Component {
       <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={24} className={classes.root} justify="center">
-            <Typography variant="display1" align="center">
+            <Typography variant="display1" align="center" className={classes.what}>
               What would you like to do today?
             </Typography>
           </Grid>

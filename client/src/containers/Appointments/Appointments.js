@@ -22,7 +22,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: 'gray',
+    borderColor: '#e53935',
     display: 'block',
     overflowX: 'auto',
     maxWidth: '80%',
@@ -67,6 +67,11 @@ const styles = theme => ({
     boxShadow: 'rgba(0, 0, 0, 0.15) 2px 5px 5px 5px',
     color: 'hsl(206, 1, 28)',
     marginTop: 30,
+    borderColor: 'white',
+  },
+  head: {
+    fontFamily: 'Bebas Neue',
+    color: '#303f9f',
   }
 });
 
@@ -137,7 +142,7 @@ class Appointments extends Component {
           <div className="box">
             <Grid container spacing={24}>
               <Grid item xs={12}>
-                <Typography variant="display1" align="left">
+                <Typography variant="display2" className={classes.head} align="left">
                   Appointments
                 </Typography>
               </Grid>
