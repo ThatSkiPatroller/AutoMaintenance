@@ -25,6 +25,7 @@ const styles = theme => ({
     borderStyle: 'solid',
     borderWidth: 4,
     borderColor: '#2F4858',
+    borderColor: '#e53935',
   },
   formControl: {
     minWidth: 120,

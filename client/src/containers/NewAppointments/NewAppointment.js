@@ -12,6 +12,7 @@ import Sidebar from '../../Components/Sidebar';
 // Importing Navbar component.
 import NavBar from '../../Components/AppBar';
 import dealerData from '../../dealerData';
+var ls = require('local-storage');
 
 //Style
 const styles = theme => ({
@@ -209,6 +210,8 @@ class NewAppointment extends Component {
       if (this.state.appointmentTime === "Overnight Service") {
         availOvernight = true
       }
+      var userId = ls.get('userId');
+       console.log(userId)
       var jsonObj =  {
         appointmentName: this.state.appointmentName,
         date: this.state.appointmentDate,
@@ -220,7 +223,8 @@ class NewAppointment extends Component {
         isPickUp: this.state.isPickUp,
         isDropOff: this.state.isDropOff,
         isOvernight: availOvernight,
-        description: this.state.description
+        description: this.state.description,
+        userId: userId,
       }
 
       AppointmentAPI.saveAppointment(jsonObj)
