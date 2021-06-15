@@ -51,7 +51,6 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: '#86BBD8',
     padding: theme.spacing.unit * 3,
-    backgroundColor: '#e53935',
     color: 'white',
   },
   heading: {
@@ -98,11 +97,6 @@ class NewAppointment extends Component {
       .then(res => this.loadAppointments())
       .catch(err => console.log(err));
   };
-
-  
-
- 
-
   // Keep track of what user enters for appointment name so that input can be grabbed later.
   // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentNameChange = (event) => {
@@ -121,17 +115,8 @@ class NewAppointment extends Component {
     });
   }
 
-  // Keep track of what user selects for doctor so that input can be grabbed later.
-  // If form validation error is showing, remove error from page when user starts typing.
-  handleAppointmentDoctorChange = (event) => {
-    this.setState({ 
-      appointmentDoctor: event.target.value,
-      appointmentDoctorError: "",
-      formSuccessMessage: "",
-    });
-  }
-
-  // Keep track of what user types into appointment date input field so that input can be grabbed later.
+ 
+ // Keep track of what user types into appointment date input field so that input can be grabbed later.
   // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentDateChange = (event) => {
     this.setState({ 
@@ -212,6 +197,7 @@ class NewAppointment extends Component {
       }
       var userId = ls.get('userId');
        console.log(userId)
+       
       var jsonObj =  {
         appointmentName: this.state.appointmentName,
         date: this.state.appointmentDate,

@@ -54,7 +54,11 @@ const AppointmentSchema = new Schema({
   description: {
     type: String,
     trim: true,
-  }
+  },
+  userId: {
+    type: String,
+    trim: true,
+  },
 });
 
 // This creates our model from the above schema, using mongoose's model method
