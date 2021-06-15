@@ -50,6 +50,8 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: '#86BBD8',
     padding: theme.spacing.unit * 3,
+    backgroundColor: '#e53935',
+    color: 'white',
   },
   heading: {
     marginTop: 40,

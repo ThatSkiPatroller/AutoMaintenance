@@ -26,6 +26,7 @@ const styles = theme => ({
     display: 'block',
     overflowX: 'auto',
     maxWidth: '80%',
+    backgroundColor: '#efefef'
   }),
   table: {
     minWidth: 700,
@@ -57,6 +58,7 @@ const styles = theme => ({
     backgroundColor: '#efefef',
     padding: theme.spacing.unit * 3,
     backgroundColor: '#efefef',
+    
   },
   heading: {
     marginTop: 40,

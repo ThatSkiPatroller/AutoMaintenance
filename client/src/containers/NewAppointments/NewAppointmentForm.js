@@ -37,6 +37,7 @@ const styles = {
     marginTop: 20,
     padding: 15,
     backgroundColor: '#33658A',
+    backgroundColor: '#e53935',
     color: 'white',
   },
   formError: {

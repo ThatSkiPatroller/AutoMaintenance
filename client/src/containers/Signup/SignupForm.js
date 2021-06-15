@@ -35,6 +35,8 @@ const styles = theme => ({
     padding: 15,
     backgroundColor: '#33658A',
     color: 'white',
+    backgroundColor: '#e53935',
+    color: 'white',
   },
   loginButton: {
     marginTop: 40,

@@ -35,6 +35,8 @@ const styles = theme => ({
     padding: 15,
     backgroundColor: '#33658A',
     color: 'white',
+    backgroundColor: '#e53935',
+    color: 'white',
   },
   signUpButton: {
     marginTop: 40,
@@ -42,6 +44,8 @@ const styles = theme => ({
     backgroundColor: '#33658A',
     color: 'white',
     float: 'right',
+    backgroundColor: '#e53935',
+    color: 'white',
   },
   formError: {
     color: 'red',
