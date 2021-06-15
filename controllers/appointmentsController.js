@@ -3,7 +3,7 @@ const db = require('../models');
 // Defining methods for the appointmentsController
 module.exports = {
   findAll: function(req, res) {
-    var userId = storage.getItem('userId');
+    var userId = localStorage.getItem('userId');
 
     db.Appointment
           .find({"_id": userId})
