@@ -11,7 +11,6 @@ import Sidebar from '../../Components/Sidebar';
 import NavBar from '../../Components/AppBar';
 import dealerData from '../../dealerData';
 var ls = require('local-storage');
-import Container from '@material-ui/core/Container';
 
 //Style
 const styles = theme => ({
@@ -250,7 +249,6 @@ class NewAppointment extends Component {
       <NavBar />,
       <div className={classes.appFrame}>
         <Sidebar />
-        <Container>
         <main className={classes.content}>
           <div>
             <Grid container spacing={24}>
@@ -287,7 +285,6 @@ class NewAppointment extends Component {
             </div>
           </div>
         </main>
-        </Container>
       </div>
     ];
   }
