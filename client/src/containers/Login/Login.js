@@ -18,6 +18,10 @@ const styles = {
   headline: {
     marginTop: 30,
   },
+  head: {
+    fontFamily: 'Bebas Neue',
+    color: '#303f9f',
+  }
 };
 
 class Login extends Component {
@@ -85,8 +89,8 @@ class Login extends Component {
       <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">
-            <Typography variant="display1">
-              Welcome to Auto Maintainance
+            <Typography variant="display2" className={classes.head}>
+              Welcome to Auto Wizard
             </Typography>
           </Grid>
         </Grid>,
