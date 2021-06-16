@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import LoginForm from './LoginForm';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom'
+var ls = require('local-storage');
 
 
 const styles = {
@@ -81,6 +82,7 @@ class Login extends Component {
       .then((res) => {
         console.log(res.data);
         setUser(res.data.userId)
+        ls.set('userId', req.user._id);
         history.push('/home')
         
       })

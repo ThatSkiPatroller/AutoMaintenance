@@ -81,7 +81,6 @@ class NewAppointment extends Component {
   
   componentDidMount() {
 
-   // this.loadDoctors();
 }
 
   // Loads all appointments and saves them to this.state.appointments.
