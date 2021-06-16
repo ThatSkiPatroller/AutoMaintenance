@@ -219,7 +219,7 @@ class NewAppointment extends Component {
         .catch(err => console.log(err));
 
       this.setState({
-          formSuccessMessage: `Your appointment is schedules on ${this.state.appointmentDate} at ${this.state.appointmentDate}. If you have availed Overnight Service, your car will be picked-up at 10:00 PM and drop off by next morning 07:00 AM on selected date.`,
+          formSuccessMessage: `Your appointment is schedules on ${this.state.appointmentDate} at ${this.state.appointmentTime}. If you have availed Overnight Service, your car will be picked-up at 10:00 PM and drop off by next morning 07:00 AM on selected date.`,
       });
       // Clear form
       document.getElementById('appointment-form').reset();

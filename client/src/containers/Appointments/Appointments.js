@@ -93,7 +93,6 @@ class Appointments extends Component {
   componentDidMount() {
     this.loadAppointments();
     console.log(this.state.appointments)
-
   }
 
   // Loads all appointments and saves them to this.state.appointments.
