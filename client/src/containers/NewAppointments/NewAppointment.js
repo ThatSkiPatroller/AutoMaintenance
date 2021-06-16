@@ -18,7 +18,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#33658A',
+    borderColor: '#e53935',
     display: 'block',
     overflowX: 'auto',
     maxWidth: '80%',
@@ -32,6 +32,10 @@ const styles = theme => ({
   },
   tableWrapper: {
     overflowX: 'auto',
+  },
+  title: {
+    fontFamily: 'Bebas Neue',
+    color: '#303f9f',
   },
   row: {
     '&:nth-of-type(odd)': {
@@ -253,9 +257,10 @@ class NewAppointment extends Component {
           <div>
             <Grid container spacing={24}>
               <Grid item xs={12}>
-                <Typography variant="display1" align="left">
-                  Add an Appointment
-                </Typography>
+              <Typography variant="display2" align="left" className={classes.title}>
+                   Add an Appointment
+                  </Typography>
+               
               </Grid>
             </Grid>
             <div className="main-content-section">
