@@ -140,8 +140,8 @@ class Signup extends Component {
         .catch(err => console.log(err))
         axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
         .then((res) => {
-          console.log(res);
-          ls.set('userId', res.userId);
+          console.log(res.data.userId);
+          ls.set('userId', res.data.userId);
           history.push('/home')
         })
     }

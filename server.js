@@ -40,8 +40,10 @@ app.get('/user', function (req, res) {
 });
 
 
+//mongoose.connect(process.env.MONGODB_URI);
 mongoose.connect(process.env.MONGODB_URI);
 
+//var MONGODB_URI = process.env.MONGODB_URI;
 var MONGODB_URI = process.env.MONGODB_URI;
 
 
