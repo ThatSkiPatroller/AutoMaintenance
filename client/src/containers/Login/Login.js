@@ -82,7 +82,7 @@ class Login extends Component {
       .then((res) => {
         console.log(res.data);
         setUser(res.data.userId)
-        ls.set('userId', req.user._id);
+        ls.set('userId', res.data.userId);
         history.push('/home')
         
       })
