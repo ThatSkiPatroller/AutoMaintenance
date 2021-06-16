@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import SignupForm from './SignupForm';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom'
+var ls = require('local-storage');
 
 
 const styles = {
@@ -140,6 +141,7 @@ class Signup extends Component {
         axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
         .then((res) => {
           console.log(res.data);
+          ls.set('userId', data.userId);
           history.push('/home')
         })
     }
@@ -180,6 +182,4 @@ class Signup extends Component {
   }
 }
 
-// Exporting the Login component
-// so that the App.js file can render the Signup page.
 export default withRouter(withStyles(styles)(Signup));
