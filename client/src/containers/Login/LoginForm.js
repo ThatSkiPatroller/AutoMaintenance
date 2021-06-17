@@ -122,10 +122,6 @@ class LoginForm extends React.Component {
                 />
                 <Typography className={classes.formError} component="p">{this.props.passwordMissingError}</Typography>
               </FormControl>
-
-              <Button size="large" className={classes.button} onClick={this.handleClickShowPassword} onMouseDown={this.handleMouseDownPassword}variant="raised" color="primary">
-              {this.state.showPassword ? "HIDE PASSWORD" : "SHOW PASSWORD"}
-              </Button>
               <br />
 
               <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit} variant="raised" color="primary">

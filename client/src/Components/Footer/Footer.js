@@ -45,13 +45,11 @@ class Footer extends React.Component {
           <Typography component="p" className={classes.footerContent}>
           </Typography>
           <Typography component="p" className={classes.copyright}>
-            Copyright &copy; 2018
+            Copyright &copy; 2021
           </Typography>
         </CardContent>
       </Card>
     );
   }
 }
-
-// Exporting the footer component with styling.
 export default withStyles(styles)(Footer);

@@ -1,16 +1,12 @@
-// Import React
 import React from 'react';
-// Import material-ui-next components and styling.
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import Hidden from 'material-ui/Hidden';
-// import third-party routing library (react-router-dom)
 import { Link } from 'react-router-dom';
 import Tooltip from 'material-ui/Tooltip';
 import IconButton from 'material-ui/IconButton';
 
-// Original drawer width: 240
 const drawerWidth = 120;
 
 const styles = {
@@ -73,8 +69,6 @@ class Sidebar extends React.Component {
                 </Tooltip>
               </ListItemText>
             </ListItem>
-            
-          
 
             <ListItem className={classes.navItem} component={Link} to="/dealers">
               <ListItemText>
