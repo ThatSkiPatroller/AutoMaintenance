@@ -11,7 +11,6 @@ import Sidebar from '../../Components/Sidebar';
 import NavBar from '../../Components/AppBar';
 import dealerData from '../../dealerData';
 var ls = require('local-storage');
-import Container from '@material-ui/core/Container';
 
 //Style
 const styles = theme => ({
@@ -19,7 +18,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#33658A',
+    borderColor: '#e53935',
     display: 'block',
     overflowX: 'auto',
     maxWidth: '80%',
@@ -33,6 +32,10 @@ const styles = theme => ({
   },
   tableWrapper: {
     overflowX: 'auto',
+  },
+  title: {
+    fontFamily: 'Bebas Neue',
+    color: '#303f9f',
   },
   row: {
     '&:nth-of-type(odd)': {
@@ -78,7 +81,6 @@ class NewAppointment extends Component {
   
   componentDidMount() {
 
-   // this.loadDoctors();
 }
 
   // Loads all appointments and saves them to this.state.appointments.
@@ -217,7 +219,7 @@ class NewAppointment extends Component {
         .catch(err => console.log(err));
 
       this.setState({
-          formSuccessMessage: `Your appointment is schedules on ${this.state.appointmentDate} at ${this.state.appointmentDate}. If you have availed Overnight Service, your car will be picked-up at 10:00 PM and drop off by next morning 07:00 AM on selected date.`,
+          formSuccessMessage: `Your appointment is schedules on ${this.state.appointmentDate} at ${this.state.appointmentTime}. If you have availed Overnight Service, your car will be picked-up at 10:00 PM and drop off by next morning 07:00 AM on selected date.`,
       });
       // Clear form
       document.getElementById('appointment-form').reset();
@@ -250,14 +252,14 @@ class NewAppointment extends Component {
       <NavBar />,
       <div className={classes.appFrame}>
         <Sidebar />
-        <Container>
         <main className={classes.content}>
           <div>
             <Grid container spacing={24}>
               <Grid item xs={12}>
-                <Typography variant="display1" align="left">
-                  Add an Appointment
-                </Typography>
+              <Typography variant="display2" align="left" className={classes.title}>
+                   Add an Appointment
+                  </Typography>
+               
               </Grid>
             </Grid>
             <div className="main-content-section">
@@ -287,7 +289,6 @@ class NewAppointment extends Component {
             </div>
           </div>
         </main>
-        </Container>
       </div>
     ];
   }

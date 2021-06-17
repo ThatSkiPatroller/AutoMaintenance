@@ -56,7 +56,8 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
-      </MuiThemeProvider>,
+
+      </MuiThemeProvider>
     ];
   }
 }

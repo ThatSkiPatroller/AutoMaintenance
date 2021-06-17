@@ -8,8 +8,7 @@ module.exports = function(passport, User){
       res.json('req.user is: ' + req.user);
     });
     
-    router.post(
-      '/login',
+    router.post('/login',
       passport.authenticate('local'),
       (req, res) => {
         console.log(req.user)
@@ -35,12 +34,11 @@ module.exports = function(passport, User){
       user
         .save()
         .then(data => {
-          
+          ls.set('userId', data.user._id);
           res.json("everything is good in signup");
         })
         .catch(err => res.json(err));
       // res.redirect('/');
-
 
     });
 

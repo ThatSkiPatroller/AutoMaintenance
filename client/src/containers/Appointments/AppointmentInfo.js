@@ -6,7 +6,6 @@ import List, { ListItem, ListItemText } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
 
-// Style/Theme
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,

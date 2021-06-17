@@ -114,9 +114,6 @@ class CarList extends React.Component {
           <Typography component="p">
             <b>Mileage:</b> {this.props.carMileage}
           </Typography>
-          <Typography component="p">
-            <b>Recommendations:</b> 
-          </Typography>
           <Button size="small" id='bttn' color="primary" variant="raised" className={classes.button} onClick={() => { this.props.deleteCar(this.props.id); }}>Remove</Button>
           <Button size="small" id={this.props.carMileage} color="primary" variant="raised" className={classes.button} onClick={() => { this.viewRecommendations(this.props.carMileage); }}>View Recommendations</Button>
         </Paper>

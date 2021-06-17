@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import LoginForm from './LoginForm';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom'
+var ls = require('local-storage');
 
 
 const styles = {
@@ -19,6 +20,10 @@ const styles = {
     marginTop: 30,
   },
   head: {
+    fontFamily: 'Bebas Neue',
+    color: '#303f9f',
+  },
+  logo: {
     fontFamily: 'Bebas Neue',
     color: '#303f9f',
   }
@@ -77,6 +82,7 @@ class Login extends Component {
       .then((res) => {
         console.log(res.data);
         setUser(res.data.userId)
+        ls.set('userId', res.data.userId);
         history.push('/home')
         
       })
@@ -89,9 +95,8 @@ class Login extends Component {
       <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">
-            <Typography variant="display1">
-            Welcome to AutoWizard <i class="fas fa-magic"></i>
-           
+          <Typography variant="display1" className={classes.logo}>
+              Welcome to AutoWizard 
             </Typography>
           </Grid>
         </Grid>,
